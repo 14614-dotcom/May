@@ -1,26 +1,256 @@
 <!DOCTYPE html>
-
-<html>
-
+<html lang="th">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Cute Portfolio 🌿</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ตั้งค่าพื้นฐาน */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Kanit', sans-serif;
+        }
 
-    <title>Portfolio อมรรัตน์ ศรีโม่ง</title>
+        body {
+            background-color: #f3f9f4; /* สีพื้นหลังเขียวอ่อนพาสเทล */
+            color: #2d4a32;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding-top: 100px; /* เว้นพื้นที่ไม่ให้โดนเมนูบัง */
+        }
 
+        /* แถบเมนูด้านบน */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(216, 243, 220, 0.95);
+            padding: 15px 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            border-bottom: 3px solid #b7e4c7;
+        }
+
+        /* สไตล์ของปุ่มเมนู (สลับแท็บ) */
+        .menu-btn {
+            background: none;
+            border: none;
+            color: #40916c;
+            font-weight: 500;
+            font-size: 1.05rem;
+            padding: 8px 18px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .menu-btn:hover {
+            background-color: #74c69d;
+            color: white;
+            transform: scale(1.05);
+        }
+
+        /* สไตล์ปุ่มเมื่อถูกเลือกใช้งาน */
+        .menu-btn.active {
+            background-color: #52b788;
+            color: white;
+            box-shadow: 0 4px 10px rgba(82, 183, 136, 0.3);
+        }
+
+        /* กล่องแสดงเนื้อหาหลัก */
+        .container {
+            background: white;
+            max-width: 800px;
+            width: 90%;
+            margin-bottom: 40px;
+            padding: 40px;
+            border-radius: 30px; /* ความโค้งมนน่ารัก */
+            box-shadow: 0 8px 24px rgba(116, 198, 157, 0.15);
+            border: 2px solid #d8f3d8;
+            text-align: center;
+        }
+
+        /* ซ่อนเนื้อหาทุกหน้าไว้ก่อน */
+        .tab-content {
+            display: none;
+        }
+
+        /* แสดงเนื้อหาเฉพาะหน้าที่มีคลาส .active */
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in-out; /* เพิ่มเอฟเฟกต์เฟดตอนเปลี่ยนหน้า */
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ตกแต่งดีเทลภายในหน้า */
+        h2 {
+            color: #1b4332;
+            margin-bottom: 25px;
+            font-size: 2rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        h2::after {
+            content: '🍃';
+            position: absolute;
+            right: -35px;
+            top: 5px;
+            font-size: 1.2rem;
+        }
+
+        p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #52796f;
+            margin-bottom: 15px;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid #b7e4c7;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .card {
+            background-color: #f7fbf7;
+            padding: 20px;
+            border-radius: 20px;
+            border: 1px dashed #74c69d;
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* ปุ่มลิงก์ภายนอกที่จะเปิดในหน้าต่างใหม่ (target="_blank") */
+        .contact-btn {
+            display: inline-block;
+            margin: 10px;
+            padding: 12px 25px;
+            background-color: #52b788;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+
+        .contact-btn:hover {
+            background-color: #40916c;
+        }
+    </style>
 </head>
+<body>
 
-<body bgcoler"=00CC99">
-<a href="profile.html">ประวัติส่วนตัว</a>
-<a href="profile.html">ประวัติการศึกษา</a>
-<a href="profile.html">ผลงาน</a
-<a href="profile.html">ช่องทางการติดต่อ</a>
+    <nav>
+        <button class="menu-btn active" onclick="switchTab('about')">ประวัติส่วนตัว</button>
+        <button class="menu-btn" onclick="switchTab('education')">ประวัติการศึกษา</button>
+        <button class="menu-btn" onclick="switchTab('portfolio')">ผลงาน</button>
+        <button class="menu-btn" onclick="switchTab('contact')">ช่องทางการติดต่อ</button>
+    </nav>
 
-<img src="images/images/87ab33ae-8dca-487d-ac86-779086de65e0.jpg">
-</p>นางสาวอมรรัตน์ ศรีโม่ง<br>
-    มัธยมศึกษาปีที่6/1<br>
-    โรงเรียนพานทอง<br>
+    <div class="container">
 
+        <div id="about" class="tab-content active">
+            <img src="https://via.placeholder.com/150" alt="Profile" class="profile-img">
+            <h2>ประวัติส่วนตัว</h2>
+            <p><strong>ชื่อ-นามสกุล:</strong> [ใส่ชื่อของคุณที่นี่]</p>
+            <p><strong>ชื่อเล่น:</strong> [ชื่อเล่น] | <strong>อายุ:</strong> [อายุ] ปี</p>
+            <p><strong>คติประจำใจ:</strong> "ความพยายามไม่เคยทำร้ายใครที่ตั้งใจจริง"</p>
+            <p>เขียนอธิบายความเป็นตัวเอง ความชอบหรืองานอดิเรกสั้นๆ ตรงนี้ให้คุณครูหรือเพื่อนๆ อ่านได้เลยครับ ✨</p>
+        </div>
 
+        <div id="education" class="tab-content">
+            <h2>ประวัติการศึกษา</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>มัธยมศึกษาตอนต้น</h3>
+                    <p>โรงเรียน: [ชื่อโรงเรียนเดิม]</p>
+                    <p>ปีการศึกษา: 25xx - 25xx</p>
+                </div>
+                <div class="card">
+                    <h3>มัธยมศึกษาตอนปลาย</h3>
+                    <p>โรงเรียน: [ชื่อโรงเรียนปัจจุบัน]</p>
+                    <p>สายการเรียน: [วิทย์-คณิต / ศิลป์-คำนวณ / อื่นๆ]</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="portfolio" class="tab-content">
+            <h2>ผลงานของฉัน</h2>
+            <p>รวมกิจกรรม เกียรติบัตร หรือโครงงานที่ภูมิใจเสนอ</p>
+            <div class="grid">
+                <div class="card">
+                    <h4>🏆 กิจกรรม/รางวัลที่ 1</h4>
+                    <p>อธิบายรายละเอียดของผลงานชิ้นนี้สั้นๆ</p>
+                </div>
+                <div class="card">
+                    <h4>💻 โครงงาน/ชิ้นงานที่ 2</h4>
+                    <p>อธิบายรายละเอียดของผลงานชิ้นนี้สั้นๆ</p>
+                </div>
+                <div class="card">
+                    <h4>🌱 กิจกรรมจิตอาสา</h4>
+                    <p>อธิบายรายละเอียดของผลงานชิ้นนี้สั้นๆ</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="contact" class="tab-content">
+            <h2>ช่องทางการติดต่อ</h2>
+            <p>สามารถกดปุ่มด้านล่างเพื่อเชื่อมต่อไปยังโซเชียลมีเดียของฉันในหน้าต่างใหม่ได้เลยครับ/ค่ะ</p>
+            <div style="margin-top: 25px;">
+                <a href="mailto:your-email@gmail.com" target="_blank" class="contact-btn">✉️ Email</a>
+                <a href="https://instagram.com/yourusername" target="_blank" class="contact-btn">📸 Instagram</a>
+                <a href="https://facebook.com/yourusername" target="_blank" class="contact-btn">👥 Facebook</a>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function switchTab(tabId) {
+            // 1. ซ่อนเนื้อหาทุกหน้าก่อน
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.remove('active'));
+
+            // 2. ยกเลิกสถานะปุ่มสีเขียวเข้มของทุกปุ่มเมนู
+            const buttons = document.querySelectorAll('.menu-btn');
+            buttons.forEach(button => button.classList.remove('active'));
+
+            // 3. แสดงเนื้อหาหน้าจอที่เลือก
+            document.getElementById(tabId).classList.add('active');
+
+            // 4. เปลี่ยนปุ่มที่กดให้เป็นสีเขียวเข้ม (active)
+            event.currentTarget.classList.add('active');
+        }
+    </script>
 
 </body>
-
 </html>
