@@ -1,6 +1,266 @@
-<nav>
-    <a href="index.html" class="active">Profile</a>
-    <a href="education.html">Education</a>
-    <a href="award.html">Awards</a>
-    <a href="contact.html">Contact</a>
-</nav>
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Showcase & Portfolio</title>
+    <style>
+        /* ตั้งค่าสไตล์พื้นฐานและธีม AI Dark Mode */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #0b0f19;
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* เมนูการนำทาง (Navbar) */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background: rgba(11, 15, 25, 0.8);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(0, 242, 254, 0.2);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #00f2fe;
+            text-shadow: 0 0 10px rgba(0, 242, 254, 0.5);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: #e0e0e0;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #00f2fe;
+            text-shadow: 0 0 8px #00f2fe;
+        }
+
+        /* ส่วน Hero ด้านหน้า */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            background: radial-gradient(circle at center, #1a233a 0%, #0b0f19 70%);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #00f2fe, #4facfe);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-bottom: 30px;
+            color: #a0aec0;
+        }
+
+        /* ปุ่มกดเอฟเฟกต์แสง */
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(45deg, #00f2fe, #4facfe);
+            color: #0b0f19;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 25px;
+            box-shadow: 0 0 15px rgba(0, 242, 254, 0.4);
+            transition: 0.3s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 25px rgba(0, 242, 254, 0.8);
+        }
+
+        /* การ์ดแนะนำเมนู/หน้าต่างๆ */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 80px 8%;
+            background: #0f172a;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(0, 242, 254, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            border-color: #00f2fe;
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 242, 254, 0.2);
+        }
+
+        .card h3 {
+            margin-bottom: 15px;
+            color: #00f2fe;
+        }
+
+        .card p {
+            color: #94a3b8;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        /* สไตล์ Pop-up */
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            pointer-events: none;
+            transition: 0.3s ease;
+        }
+
+        .popup-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .popup-content {
+            background: #1e293b;
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid #00f2fe;
+            box-shadow: 0 0 30px rgba(0, 242, 254, 0.3);
+            text-align: center;
+            max-width: 450px;
+            width: 90%;
+            position: relative;
+        }
+
+        .popup-content h2 {
+            color: #00f2fe;
+            margin-bottom: 15px;
+        }
+
+        .popup-content p {
+            color: #cbd5e1;
+            margin-bottom: 25px;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: #94a3b8;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .close-btn:hover {
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">AI PORTFOLIO</div>
+        <ul class="nav-links">
+            <li><a href="#">หน้าแรก</a></li>
+            <li><a href="about.html">เกี่ยวกับเรา</a></li>
+            <li><a href="portfolio.html">ผลงาน</a></li>
+            <li><a href="contact.html">ติดต่อ</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <h1>สำรวจอนาคตผ่านผลงานแห่งยุค AI</h1>
+        <p>ยินดีต้อนรับสู่พื้นที่รวบรวมไอเดีย นวัตกรรม และความคิดสร้างสรรค์ ที่ถูกขับเคลื่อนด้วยพลังแห่งเทคโนโลยีปัญญาประดิษฐ์</p>
+        <a href="portfolio.html" class="btn">เปิดดูแฟ้มสะสมผลงาน</a>
+    </section>
+
+    <section class="features">
+        <div class="card">
+            <h3>เกี่ยวกับเรา</h3>
+            <p>ค้นพบเบื้องหลัง แนวคิด และจุดเริ่มต้นในการนำเทคโนโลยี AI มาประยุกต์ใช้ในผลงาน</p>
+            <a href="about.html" class="btn">อ่านเพิ่มเติม</a>
+        </div>
+        <div class="card">
+            <h3>แฟ้มสะสมผลงาน</h3>
+            <p>รวบรวมชิ้นงานสุดพิเศษที่ผสมผสานจินตนาการและโค้ดเข้าด้วยกันอย่างลงตัว</p>
+            <a href="portfolio.html" class="btn">เข้าชมผลงาน</a>
+        </div>
+        <div class="card">
+            <h3>ติดต่อเรา</h3>
+            <p>มีข้อสงสัยหรือสนใจร่วมงาน? สามารถส่งข้อความถึงเราได้โดยตรงตลอดเวลา</p>
+            <a href="contact.html" class="btn">ติดต่อเลย</a>
+        </div>
+    </section>
+
+    <div class="popup-overlay" id="welcomePopup">
+        <div class="popup-content">
+            <button class="close-btn" onclick="closePopup()">&times;</button>
+            <h2>ยินดีต้อนรับสู่นวัตกรรม!</h2>
+            <p>พร้อมที่จะค้นพบแฟ้มสะสมผลงานที่สร้างสรรค์ด้วยไอเดียสุดล้ำแล้วหรือยัง? คลิกด้านล่างเพื่อเริ่มต้นการรับชมได้เลย</p>
+            <a href="portfolio.html" class="btn">ชมแฟ้มสะสมผลงาน</a>
+        </div>
+    </div>
+
+    <script>
+        // แสดง Pop-up หลังจากโหลดหน้าเว็บเสร็จ 1 วินาที
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('welcomePopup').classList.add('active');
+            }, 1000);
+        });
+
+        // ฟังก์ชันปิด Pop-up
+        function closePopup() {
+            document.getElementById('welcomePopup').classList.remove('active');
+        }
+    </script>
+
+</body>
+</html>
