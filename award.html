@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Works - Amonrat Portfolio</title>
+    <title>Awards - Amonrat Portfolio</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
         body { background-color: #f0f7ff; color: #333; }
@@ -11,18 +11,17 @@
         nav a { text-decoration: none; color: #fff; font-weight: bold; padding: 10px 20px; margin: 0 5px; border-radius: 20px; background-color: rgba(255,255,255,0.3); transition: 0.3s; }
         nav a:hover, nav a.active { background-color: #fff; color: #4a90e2; }
 
-        .container { max-width: 900px; margin: 40px auto; padding: 30px; background: #ffffff; border-radius: 30px; box-shadow: 0 10px 30px rgba(160, 196, 255, 0.3); border: 4px solid #eef4ff; }
+        .container { max-width: 800px; margin: 40px auto; padding: 30px; background: #ffffff; border-radius: 30px; box-shadow: 0 10px 30px rgba(160, 196, 255, 0.3); border: 4px solid #eef4ff; }
         h1 { color: #4a90e2; text-align: center; margin-bottom: 30px; text-shadow: 2px 2px #e1edff; }
         
-        /* จัดเรียงผลงานเป็น Grid สวยๆ */
-        .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
-        .portfolio-item { background: #fff; border: 2px solid #e1edff; border-radius: 20px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: 0.3s; }
-        .portfolio-item:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(160,196,255,0.4); }
-        
-        .portfolio-img { width: 100%; height: 200px; object-fit: cover; border-bottom: 2px solid #e1edff; }
-        .portfolio-info { padding: 15px; }
-        .portfolio-title { font-weight: bold; color: #4a90e2; font-size: 1.1rem; margin-bottom: 8px; }
-        .portfolio-desc { color: #666; font-size: 0.95rem; line-height: 1.4; }
+        /* สไตล์กล่องรางวัลวิบวับ Y2K */
+        .award-box { background: #fdfefe; border: 2px solid #e1edff; padding: 20px; border-radius: 20px; margin-bottom: 20px; display: flex; align-items: center; box-shadow: 0 4px 10px rgba(0,0,0,0.02); transition: 0.3s; }
+        .award-box:hover { transform: scale(1.02); box-shadow: 0 5px 15px rgba(160,196,255,0.3); }
+        .award-icon { font-size: 2.5rem; margin-right: 20px; background: #fff1f2; padding: 10px; border-radius: 15px; }
+        .award-details { flex: 1; }
+        .award-title { font-size: 1.2rem; font-weight: bold; color: #4a90e2; margin-bottom: 5px; }
+        .award-org { color: #666; font-size: 1rem; }
+        .award-date { color: #aaa; font-size: 0.85rem; margin-top: 5px; }
     </style>
 </head>
 <body>
@@ -31,33 +30,30 @@
         <a href="index.html">หน้าแรก</a>
         <a href="profile.html">ประวัติส่วนตัว</a>
         <a href="education.html">ประวัติการศึกษา</a>
-        <a href="portfolio.html" class="active">ผลงาน</a>
+        <a href="portfolio.html">ผลงาน</a>
+        <a href="award.html" class="active">รางวัลที่ได้รับ</a>
         <a href="contact.html">ช่องทางการติดต่อ</a>
     </nav>
 
     <div class="container">
-        <h1>🧸 ผลงานและกิจกรรม (My Art & Projects)</h1>
+        <h1>🏆 รางวัลและความภาคภูมิใจ (My Awards)</h1>
         
-        <div class="portfolio-grid">
-            <!-- ผลงานชิ้นที่ 1 -->
-            <div class="portfolio-item">
-                <img src="project1.jpg" alt="ผลงานที่ 1" class="portfolio-img" onerror="this.src='https://via.placeholder.com/300x200/cbf3f0/ffffff?text=Project+1'">
-                <div class="portfolio-info">
-                    <div class="portfolio-title">โครงงาน / กิจกรรมที่ 1</div>
-                    <div class="portfolio-desc">คำอธิบายผลงานชิ้นที่ 1 ของน้องอมรรัตน์ เช่น ได้เข้าร่วมการประกวด หรือทำกิจกรรมจิตอาสาของโรงเรียน</div>
-                </div>
+        <div class="award-box">
+            <div class="award-icon">🥇</div>
+            <div class="award-details">
+                <div class="award-title">รางวัลชนะเลิศ / เกียรติบัตรเรียนดี</div>
+                <div class="award-org">หน่วยงานหรือโรงเรียนที่มอบให้: โรงเรียน [ใส่ชื่อโรงเรียน]</div>
+                <div class="award-date">ปี พ.ศ. 2568</div>
             </div>
+        </div>
 
-            <!-- ผลงานชิ้นที่ 2 -->
-            <div class="portfolio-item">
-                <img src="project2.jpg" alt="ผลงานที่ 2" class="portfolio-img" onerror="this.src='https://via.placeholder.com/300x200/ffd8be/ffffff?text=Project+2'">
-                <div class="portfolio-info">
-                    <div class="portfolio-title">โครงงาน / กิจกรรมที่ 2</div>
-                    <div class="portfolio-desc">คำอธิบายผลงานชิ้นที่ 2 เช่น เกียรติบัตรที่ได้รับ หรือรูปภาพการจัดบอร์ดนิทรรศการในวันสำคัญ</div>
-                </div>
+        <div class="award-box">
+            <div class="award-icon">✨</div>
+            <div class="award-details">
+                <div class="award-title">รางวัลเข้าร่วมกิจกรรม / การแข่งขัน...</div>
+                <div class="award-org">หน่วยงานหรือโรงเรียนที่มอบให้: [ใส่ชื่อหน่วยงาน]</div>
+                <div class="award-date">ปี พ.ศ. 2567</div>
             </div>
-            
-            <!-- น้องสามารถคัดลอกบล็อก <div class="portfolio-item">...</div> ด้านบนมาวางเพิ่มเพื่อเพิ่มจำนวนผลงานได้เรื่อยๆ เลยนะค๊าบ -->
         </div>
     </div>
 
