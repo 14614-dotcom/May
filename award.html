@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ผลงานไอที</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body { background: #0d0f1a; color: #fff; min-height: 100vh; padding: 80px 20px 20px; text-align: center; }
+        nav { position: fixed; top: 20px; left: 50%; transform: translateX(-50%); }
+        nav a { color: #fff; text-decoration: none; margin: 0 15px; font-weight: bold; }
+        nav a:hover { color: #00f3ff; }
+        
+        .grid { display: flex; justify-content: center; gap: 20px; margin-top: 30px; }
+        .project-card { border: 1px solid #00f3ff; padding: 20px; border-radius: 10px; background: rgba(0,0,0,0.5); width: 250px; }
+        
+        button {
+            background: #00f3ff; border: none; padding: 10px 15px; border-radius: 5px;
+            color: #000; font-weight: bold; cursor: pointer; margin-top: 10px;
+        }
+        button:hover { background: #fff; box-shadow: 0 0 10px #00f3ff; }
+
+        /* Style สำหรับ Popup (Modal) */
+        .modal {
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.8); justify-content: center; align-items: center;
+        }
+        .modal-content {
+            background: #121526; border: 2px solid #00f3ff; padding: 30px;
+            border-radius: 10px; width: 300px; text-align: center; box-shadow: 0 0 20px #00f3ff;
+        }
+        .close-btn { background: #ff0055; color: #fff; margin-top: 15px; }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">หน้าแรก</a>
+        <a href="education.html">ประวัติการศึกษา</a>
+        <a href="academic.html">ประวัติผลงานการเรียน</a>
+        <a href="projects.html">ผลงาน</a>
+        <a href="contact.html">ช่องทางการติดต่อ</a>
+    </nav>
+
+    <h2 style="color: #00f3ff;">PROJECTS / ผลงานกิจกรรม</h2>
+
+    <div class="grid">
+        <div class="project-card">
+            <h3>โครงงาน AI เบื้องต้น</h3>
+            <p>ระบบตรวจจับใบหน้าด้วย Python</p>
+            <button onclick="openModal('โครงงาน AI', 'พัฒนาโปรแกรมตรวจจับใบหน้าโดยใช้ Python และ OpenCV สามารถตรวจจับใบหน้าได้แบบ Real-time')">ดูรายละเอียด</button>
+        </div>
+        <div class="project-card">
+            <h3>เว็บไซต์ Portfolio</h3>
+            <p>พัฒนาด้วย HTML/CSS</p>
+            <button onclick="openModal('เว็บไซต์ Portfolio', 'ออกแบบและเขียนโค้ดเว็บไซต์แสดงผลงานส่วนตัวแนว AI ไซเบอร์')">ดูรายละเอียด</button>
+        </div>
+    </div>
+
+    <div class="modal" id="myModal">
+        <div class="modal-content">
+            <h3 id="modalTitle" style="color: #00f3ff;">ชื่อผลงาน</h3>
+            <p id="modalDesc" style="margin-top: 10px;">รายละเอียดผลงาน...</p>
+            <button class="close-btn" onclick="closeModal()">ปิดหน้าต่าง</button>
+        </div>
+    </div>
+
+    <script>
+        function openModal(title, desc) {
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modalDesc').innerText = desc;
+            document.getElementById('myModal').style.display = 'flex';
+        }
+        function closeModal() {
+            document.getElementById('myModal').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
