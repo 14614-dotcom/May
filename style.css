@@ -1,570 +1,119 @@
-/* ==========================
-   GOOGLE FONT
-========================== */
-@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;700&family=Poppins:wght@300;400;600;700&display=swap');
-
-/* ==========================
-   RESET
-========================== */
-
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    scroll-behavior:smooth;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Kanit',sans-serif;
 }
 
 body{
-    font-family:'Kanit',sans-serif;
-    color:#123;
-    overflow-x:hidden;
-
-    background:
-    radial-gradient(circle at top,#ffffff,#eaf6ff 40%,#d8eeff 80%,#bfe6ff);
-
-    min-height:100vh;
+background:linear-gradient(
+135deg,
+#ffffff,
+#e8f5ff,
+#d6eeff
+);
+min-height:100vh;
 }
-
-/* ==========================
-   พื้นหลัง Y2K
-========================== */
-
-body::before{
-    content:"";
-    position:fixed;
-    width:200%;
-    height:200%;
-    left:-50%;
-    top:-50%;
-
-    background-image:
-    linear-gradient(rgba(255,255,255,.4) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(255,255,255,.4) 1px,transparent 1px);
-
-    background-size:45px 45px;
-
-    opacity:.2;
-
-    animation:gridMove 30s linear infinite;
-
-    z-index:-3;
-}
-
-@keyframes gridMove{
-
-0%{
-transform:translateY(0);
-}
-
-100%{
-transform:translateY(60px);
-}
-
-}
-
-/* ==========================
-   Bubble
-========================== */
-
-.bubble{
-    position:fixed;
-    border-radius:50%;
-    background:rgba(255,255,255,.4);
-    animation:float 15s infinite;
-    backdrop-filter:blur(4px);
-    z-index:-2;
-}
-
-@keyframes float{
-
-0%{
-transform:translateY(100vh);
-}
-
-100%{
-transform:translateY(-120vh);
-}
-
-}
-
-/* ==========================
-   Navbar
-========================== */
 
 nav{
-
 position:fixed;
-
 top:0;
-
-left:0;
-
 width:100%;
-
+padding:20px 8%;
 display:flex;
-
 justify-content:space-between;
-
 align-items:center;
 
-padding:20px 8%;
+background:rgba(255,255,255,.8);
+backdrop-filter:blur(10px);
 
-background:rgba(255,255,255,.55);
-
-backdrop-filter:blur(18px);
-
-box-shadow:0 5px 20px rgba(0,0,0,.08);
-
-z-index:999;
-
+box-shadow:0 5px 20px rgba(0,0,0,.1);
 }
 
 .logo{
-
 font-size:28px;
-
 font-weight:bold;
-
-color:#1d5fff;
-
-letter-spacing:2px;
-
+color:#3498ff;
 }
 
 nav ul{
-
 display:flex;
-
-gap:20px;
-
 list-style:none;
-
+gap:20px;
 }
 
-nav ul li a{
-
+nav a{
 text-decoration:none;
-
-font-size:17px;
-
-font-weight:500;
-
-color:#1d4ed8;
-
-padding:10px 18px;
-
-border-radius:30px;
-
-transition:.35s;
-
+color:#3498ff;
+font-weight:600;
 }
-
-nav ul li a:hover{
-
-background:#4fa6ff;
-
-color:white;
-
-box-shadow:0 0 20px #8ac9ff;
-
-}
-
-/* ==========================
-   Hero
-========================== */
 
 .hero{
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-flex-direction:column;
-
-text-align:center;
-
 padding-top:150px;
-
-padding-bottom:120px;
-
+text-align:center;
 }
 
 .hero img{
-
 width:250px;
-
 height:250px;
-
-border-radius:50%;
-
 object-fit:cover;
-
+border-radius:50%;
 border:8px solid white;
 
-box-shadow:
-
-0 0 40px #7bc4ff,
-
-0 0 80px #bfe7ff;
-
-animation:floatPic 4s ease-in-out infinite;
-
-}
-
-@keyframes floatPic{
-
-50%{
-
-transform:translateY(-12px);
-
-}
-
+box-shadow:0 0 30px #7fc7ff;
 }
 
 .hero h1{
-
-font-size:58px;
-
-margin-top:35px;
-
-color:#2978ff;
-
+margin-top:30px;
+font-size:50px;
+color:#2677ff;
 }
 
 .hero p{
-
 margin-top:20px;
-
-font-size:22px;
-
-color:#4f6b91;
-
+font-size:20px;
 }
 
-/* ==========================
-   ปุ่ม
-========================== */
-
 .btn{
-
 display:inline-block;
 
-margin-top:40px;
+margin-top:30px;
 
-padding:16px 38px;
+padding:15px 35px;
 
-border-radius:50px;
-
-background:linear-gradient(45deg,#6dbbff,#7fbcff,#9bd8ff);
+background:#4fa9ff;
 
 color:white;
 
 text-decoration:none;
 
-font-size:18px;
-
-font-weight:bold;
-
-transition:.4s;
-
-box-shadow:0 15px 30px rgba(92,176,255,.4);
-
+border-radius:50px;
 }
 
-.btn:hover{
-
-transform:translateY(-6px);
-
-box-shadow:0 20px 40px rgba(92,176,255,.6);
-
+.about{
+padding:100px 10%;
 }
-
-/* ==========================
-   Glass Card
-========================== */
 
 .card{
 
-background:rgba(255,255,255,.45);
-
-backdrop-filter:blur(18px);
-
-border:1px solid rgba(255,255,255,.6);
-
-border-radius:30px;
+background:white;
 
 padding:40px;
 
-box-shadow:0 20px 50px rgba(0,0,0,.08);
-
-transition:.4s;
-
-}
-
-.card:hover{
-
-transform:translateY(-10px);
-
-box-shadow:0 25px 60px rgba(60,150,255,.25);
-
-}
-
-/* ==========================
-   Section
-========================== */
-
-section{
-
-padding:120px 8%;
-
-}
-
-.title{
-
-font-size:40px;
-
-text-align:center;
-
-margin-bottom:50px;
-
-color:#2377ff;
-
-}
-
-/* ==========================
-   Profile Grid
-========================== */
-
-.profile-grid{
-
-display:grid;
-
-grid-template-columns:350px 1fr;
-
-gap:50px;
-
-align-items:center;
-
-}
-
-.profile-grid img{
-
-width:100%;
-
 border-radius:25px;
 
-box-shadow:0 0 30px #b3dcff;
+box-shadow:0 10px 30px rgba(0,0,0,.1);
 
 }
 
-.info{
-
-display:grid;
-
-grid-template-columns:repeat(2,1fr);
-
-gap:20px;
-
+.card h2{
+color:#2677ff;
+margin-bottom:20px;
 }
-
-.info div{
-
-background:white;
-
-padding:20px;
-
-border-radius:20px;
-
-box-shadow:0 10px 20px rgba(0,0,0,.08);
-
-}
-
-/* ==========================
-   Timeline
-========================== */
-
-.timeline{
-
-display:flex;
-
-flex-direction:column;
-
-gap:35px;
-
-}
-
-.timeline .card{
-
-border-left:8px solid #5aaeff;
-
-}
-
-/* ==========================
-   Gallery
-========================== */
-
-.gallery{
-
-display:grid;
-
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-
-gap:30px;
-
-}
-
-.gallery img{
-
-width:100%;
-
-height:220px;
-
-object-fit:cover;
-
-border-radius:25px;
-
-transition:.4s;
-
-}
-
-.gallery img:hover{
-
-transform:scale(1.05);
-
-}
-
-/* ==========================
-   Contact
-========================== */
-
-.contact{
-
-display:grid;
-
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-
-gap:30px;
-
-}
-
-.contact .card{
-
-text-align:center;
-
-}
-
-.contact h3{
-
-margin-bottom:15px;
-
-color:#2978ff;
-
-}
-
-/* ==========================
-   Footer
-========================== */
 
 footer{
-
-padding:35px;
-
-text-align:center;
-
-background:#dcefff;
-
 margin-top:100px;
-
-color:#447;
-
-}
-
-/* ==========================
-   Animation
-========================== */
-
-.fade{
-
-opacity:0;
-
-transform:translateY(40px);
-
-transition:1s;
-
-}
-
-.fade.show{
-
-opacity:1;
-
-transform:translateY(0);
-
-}
-
-/* ==========================
-   Scroll Bar
-========================== */
-
-::-webkit-scrollbar{
-
-width:10px;
-
-}
-
-::-webkit-scrollbar-thumb{
-
-background:#74b8ff;
-
-border-radius:30px;
-
-}
-
-::-webkit-scrollbar-track{
-
-background:white;
-
-}
-
-/* ==========================
-   Responsive
-========================== */
-
-@media(max-width:900px){
-
-.profile-grid{
-
-grid-template-columns:1fr;
-
-}
-
-.hero h1{
-
-font-size:40px;
-
-}
-
-nav{
-
-flex-direction:column;
-
-gap:15px;
-
-}
-
-nav ul{
-
-flex-wrap:wrap;
-
-justify-content:center;
-
-}
-
-.info{
-
-grid-template-columns:1fr;
-
-}
-
+padding:25px;
+text-align:center;
+background:#dbeeff;
 }
