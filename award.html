@@ -3,56 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Awards - Amonrat Portfolio</title>
+    <title>⚡ AWARDS - AMONRAT ⚡</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        body { background-color: #f0f7ff; color: #333; }
-        nav { background: linear-gradient(135deg, #a0c4ff, #cbf3f0); padding: 15px; text-align: center; }
-        nav a { text-decoration: none; color: #fff; font-weight: bold; padding: 10px 20px; margin: 0 5px; border-radius: 20px; background-color: rgba(255,255,255,0.3); transition: 0.3s; }
-        nav a:hover, nav a.active { background-color: #fff; color: #4a90e2; }
-
-        .container { max-width: 800px; margin: 40px auto; padding: 30px; background: #ffffff; border-radius: 30px; box-shadow: 0 10px 30px rgba(160, 196, 255, 0.3); border: 4px solid #eef4ff; }
-        h1 { color: #4a90e2; text-align: center; margin-bottom: 30px; text-shadow: 2px 2px #e1edff; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Courier New', monospace, sans-serif; }
+        body { 
+            background: linear-gradient(180deg, #ffb6c1 0%, #ffc6ff 40%, #cbf3f0 100%);
+            background-image: linear-gradient(rgba(255, 255, 255, 0.3) 2px, transparent 2px), linear-gradient(90deg, rgba(255, 255, 255, 0.3) 2px, transparent 2px);
+            background-size: 25px 25px; color: #0c1a60; min-height: 100vh;
+        }
         
-        /* สไตล์กล่องรางวัลวิบวับ Y2K */
-        .award-box { background: #fdfefe; border: 2px solid #e1edff; padding: 20px; border-radius: 20px; margin-bottom: 20px; display: flex; align-items: center; box-shadow: 0 4px 10px rgba(0,0,0,0.02); transition: 0.3s; }
-        .award-box:hover { transform: scale(1.02); box-shadow: 0 5px 15px rgba(160,196,255,0.3); }
-        .award-icon { font-size: 2.5rem; margin-right: 20px; background: #fff1f2; padding: 10px; border-radius: 15px; }
-        .award-details { flex: 1; }
-        .award-title { font-size: 1.2rem; font-weight: bold; color: #4a90e2; margin-bottom: 5px; }
-        .award-org { color: #666; font-size: 1rem; }
-        .award-date { color: #aaa; font-size: 0.85rem; margin-top: 5px; }
+        /* แถบเมนูด้านบนของหน้า Awards */
+        nav { background: #0c1a60; padding: 12px; text-align: center; border-bottom: 4px solid #ff4081; box-shadow: 0 4px 0 #000; }
+        nav a { text-decoration: none; color: #fff; font-weight: bold; font-size: 13px; padding: 8px 16px; margin: 3px; border: 2px solid #ff4081; background: #ff79b0; box-shadow: 2px 2px 0px #000; display: inline-block; }
+        nav a:hover, nav a.active { background: #00e5ff; color: #0c1a60; border-color: #0c1a60; box-shadow: 0px 0px 8px #00e5ff; }
+
+        .window { max-width: 650px; margin: 40px auto; background: #ffffff; border: 4px solid #0c1a60; box-shadow: 8px 8px 0px #0c1a60; border-radius: 12px; overflow: hidden; }
+        .window-header { background: linear-gradient(90deg, #ff4081, #ff79b0); padding: 10px 15px; color: #fff; font-weight: bold; font-size: 14px; display: flex; justify-content: space-between; border-bottom: 4px solid #0c1a60; }
+        
+        .content { padding: 25px; }
+        h1 { text-align: center; font-size: 22px; color: #0c1a60; margin-bottom: 30px; text-shadow: 2px 2px #ffc6ff; }
+        
+        .award-row { background: #fff5f8; border: 3px solid #0c1a60; padding: 15px; margin-bottom: 15px; border-radius: 8px; display: flex; align-items: center; box-shadow: 4px 4px 0px #00e5ff; }
+        .medal { font-size: 28px; margin-right: 15px; background: #fff; border: 2px solid #0c1a60; border-radius: 6px; width: 50px; height: 50px; display: flex; justify-content: center; align-items: center; box-shadow: 2px 2px 0 #0c1a60; }
+        .award-name { font-weight: bold; color: #0c1a60; font-size: 16px; }
     </style>
 </head>
 <body>
 
     <nav>
-        <a href="index.html">หน้าแรก</a>
-        <a href="profile.html">ประวัติส่วนตัว</a>
-        <a href="education.html">ประวัติการศึกษา</a>
-        <a href="portfolio.html">ผลงาน</a>
-        <a href="award.html" class="active">รางวัลที่ได้รับ</a>
-        <a href="contact.html">ช่องทางการติดต่อ</a>
+        <a href="index.html">HOME</a>
+        <a href="profile.html">PROFILE</a>
+        <a href="education.html">EDUCATION</a>
+        <a href="portfolio.html">WORKS</a>
+        <a href="award.html" class="active">AWARDS</a>
+        <a href="contact.html">CONTACT</a>
     </nav>
 
-    <div class="container">
-        <h1>🏆 รางวัลและความภาคภูมิใจ (My Awards)</h1>
-        
-        <div class="award-box">
-            <div class="award-icon">🥇</div>
-            <div class="award-details">
-                <div class="award-title">รางวัลชนะเลิศ / เกียรติบัตรเรียนดี</div>
-                <div class="award-org">หน่วยงานหรือโรงเรียนที่มอบให้: โรงเรียน [ใส่ชื่อโรงเรียน]</div>
-                <div class="award-date">ปี พ.ศ. 2568</div>
-            </div>
+    <div class="window">
+        <div class="window-header">
+            <span>🏆 ACHIEVEMENTS_UNLOCKED.sys</span>
+            <div class="window-buttons"><span>_</span><span>◽</span><span>X</span></div>
         </div>
+        <div class="content">
+            <h1>👑 MY AWARDS (รางวัลและความภาคภูมิใจ)</h1>
+            
+            <div class="award-row">
+                <div class="medal">🏆</div>
+                <div>
+                    <div class="award-name">รางวัลชนะเลิศ / เกียรติบัตรเรียนดี</div>
+                    <p style="font-size:12px; color:#ff4081; margin-top:3px; font-weight:bold;">โรงเรียน [ใส่ชื่อโรงเรียน] // ปี พ.ศ. 2568</p>
+                </div>
+            </div>
 
-        <div class="award-box">
-            <div class="award-icon">✨</div>
-            <div class="award-details">
-                <div class="award-title">รางวัลเข้าร่วมกิจกรรม / การแข่งขัน...</div>
-                <div class="award-org">หน่วยงานหรือโรงเรียนที่มอบให้: [ใส่ชื่อหน่วยงาน]</div>
-                <div class="award-date">ปี พ.ศ. 2567</div>
+            <div class="award-row">
+                <div class="medal">⭐</div>
+                <div>
+                    <div class="award-name">รางวัลการเข้าร่วมกิจกรรม / การแข่งขัน...</div>
+                    <p style="font-size:12px; color:#555; margin-top:3px;">หน่วยงาน [ใส่ชื่อหน่วยงานที่มอบให้] // ปี พ.ศ. 2567</p>
+                </div>
             </div>
         </div>
     </div>
