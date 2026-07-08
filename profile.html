@@ -1,26 +1,315 @@
-<!DOCTYPE html>
+/* ==========================
+   Google Font
+========================== */
 
-<html>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Orbitron:wght@500;700&display=swap');
 
-<head>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
 
-    <title>ประวัติส่วนตัว</title>
+body{
 
-</head>
-<body>
-<h1>ประวัติส่วนตัว</h1>
-<p>
-  ชื่อ นางสาวอมรรัตน์ ศรีโม่ง <br>
-  ชื่อเล่น เมย์ <br>
-  อายุ18 <br>
-</p>
+    font-family:'Poppins',sans-serif;
+    background:#0D1117;
+    color:white;
+    overflow-x:hidden;
 
+}
 
+/* ==========================
+Background Animation
+========================== */
 
-<p>โรงเรียนพานทอง</p>
+.bg-animation{
 
+    position:fixed;
+    width:100%;
+    height:100%;
+    z-index:-1;
 
+    background:linear-gradient(
+    -45deg,
+    #0D1117,
+    #001B2E,
+    #003566,
+    #00B4D8);
 
-</body>
+    background-size:400% 400%;
 
-</html>
+    animation:bgMove 15s infinite;
+
+}
+
+@keyframes bgMove{
+
+0%{
+
+background-position:0% 50%;
+
+}
+
+50%{
+
+background-position:100% 50%;
+
+}
+
+100%{
+
+background-position:0% 50%;
+
+}
+
+}
+
+/* ==========================
+Navbar
+========================== */
+
+nav{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+padding:20px 8%;
+
+position:fixed;
+
+top:0;
+
+width:100%;
+
+background:rgba(0,0,0,.4);
+
+backdrop-filter:blur(15px);
+
+z-index:999;
+
+}
+
+.logo{
+
+font-family:'Orbitron',sans-serif;
+
+font-size:24px;
+
+font-weight:bold;
+
+color:#00E5FF;
+
+letter-spacing:2px;
+
+}
+
+.logo i{
+
+margin-right:10px;
+
+}
+
+nav ul{
+
+display:flex;
+
+list-style:none;
+
+gap:25px;
+
+}
+
+nav ul li a{
+
+color:white;
+
+text-decoration:none;
+
+transition:.3s;
+
+font-weight:500;
+
+}
+
+nav ul li a:hover{
+
+color:#00E5FF;
+
+text-shadow:0 0 15px cyan;
+
+}
+
+.active{
+
+color:#00E5FF;
+
+}
+
+/* ==========================
+Hero
+========================== */
+
+.hero{
+
+min-height:100vh;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+padding:100px 10%;
+
+gap:80px;
+
+}
+
+.left img{
+
+width:320px;
+
+height:320px;
+
+border-radius:50%;
+
+object-fit:cover;
+
+border:5px solid cyan;
+
+box-shadow:
+
+0 0 25px cyan,
+
+0 0 60px #00E5FF;
+
+transition:.4s;
+
+}
+
+.left img:hover{
+
+transform:scale(1.05);
+
+}
+
+.right{
+
+max-width:600px;
+
+}
+
+.right h3{
+
+color:#7DF9FF;
+
+font-size:28px;
+
+}
+
+.right h1{
+
+font-size:60px;
+
+margin:10px 0;
+
+}
+
+.right span{
+
+color:#00E5FF;
+
+}
+
+.right h2{
+
+font-size:30px;
+
+height:45px;
+
+color:#7DF9FF;
+
+margin-bottom:20px;
+
+font-family:'Orbitron';
+
+}
+
+.right p{
+
+line-height:1.8;
+
+opacity:.9;
+
+margin-bottom:35px;
+
+}
+
+/* ==========================
+Buttons
+========================== */
+
+.buttons{
+
+display:flex;
+
+gap:20px;
+
+}
+
+button{
+
+padding:15px 35px;
+
+border:none;
+
+border-radius:50px;
+
+background:#00E5FF;
+
+color:black;
+
+font-weight:bold;
+
+cursor:pointer;
+
+transition:.3s;
+
+font-size:16px;
+
+}
+
+button:hover{
+
+transform:translateY(-5px);
+
+box-shadow:
+
+0 0 20px cyan,
+
+0 0 50px cyan;
+
+}
+
+.outline{
+
+background:transparent;
+
+border:2px solid cyan;
+
+color:white;
+
+}
+
+.outline:hover{
+
+background:cyan;
+
+color:black;
+
+}
