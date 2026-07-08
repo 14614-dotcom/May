@@ -3,14 +3,369 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home | My Portfolio DEK70</title>
+    <title>My Chinese Style Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600&family=Noto+Serif+TC:wght@500;700&display=swap" rel="stylesheet">
+    
     <style>
-        /* CSS ส่วนกลางเพื่อคุมโทนเว็บไซต์ */
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        body { background-color: #f8f9fa; color: #333; line-height: 1.6; }
-        
-        /* Navigation Bar */
-        nav { background-color: #1e293b; padding: 15px 0; position: sticky; top: 0; z-index: 1000; }
-        nav ul { list-style: none; display: flex; justify-content: center; gap: 20px; }
-        nav ul li a { color: #fff; text-decoration: none; font-weight: 600; padding: 8px 16px; border-radius: 4px; transition: 0.3s; }
-        nav ul li a:hover, nav ul li a.active
+        /* --- ตั้งค่าเริ่มต้นและธีมสีแดงอ่อน (Soft Red / Pastel Red) --- */
+        :root {
+            --bg-color: #FFF5F5;      /* สีพื้นหลังแดงอ่อนๆ พาสเทล */
+            --main-red: #D35252;      /* สีแดงหลักสไตล์จีนโมเดิร์น */
+            --dark-red: #8B2626;      /* สีแดงเข้มสำหรับตัวหนังสือ */
+            --gold: #D4AF37;          /* สีทองสำหรับตกแต่ง */
+            --text-color: #4A3B3B;    /* สีตัวอักษรทั่วไป */
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Sarabun', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Noto Serif TC', serif;
+            color: var(--dark-red);
+        }
+
+        /* --- แถบเมนูนำทาง (Navigation Bar) --- */
+        nav {
+            background-color: var(--main-red);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-bottom: 3px double var(--gold);
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 15px 0;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--gold);
+        }
+
+        /* --- จัดโครงสร้างแต่ละหน้า (Sections) --- */
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        section {
+            background: white;
+            margin-bottom: 60px;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(211, 82, 82, 0.1);
+            border: 2px solid #FADBD8;
+            position: relative;
+        }
+
+        /* ตกแต่งมุมกรอบสไตล์จีน */
+        section::before {
+            content: "🏮";
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            font-size: 1.5rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            border-bottom: 2px dashed var(--main-red);
+            padding-bottom: 10px;
+        }
+
+        /* --- 1. หน้าแรก (Home) --- */
+        #home {
+            text-align: center;
+            background: linear-gradient(135deg, #FFF, #FFEAEA);
+            border: 4px double var(--main-red);
+        }
+
+        .profile-main-img {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--main-red);
+            outline: 3px double var(--gold);
+            margin: 20px auto;
+        }
+
+        .home-accent {
+            font-size: 3rem;
+            color: var(--gold);
+            margin: 10px 0;
+        }
+
+        /* --- 2. ประวัติส่วนตัว (About Me) --- */
+        .about-grid {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .about-img {
+            width: 250px;
+            height: 320px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 3px solid var(--main-red);
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .info-list {
+            list-style: none;
+            margin-top: 15px;
+        }
+
+        .info-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #FFE4E4;
+        }
+
+        .info-list strong {
+            color: var(--main-red);
+        }
+
+        /* --- 3. ประวัติการศึกษา (Education) --- */
+        .timeline {
+            border-left: 3px solid var(--main-red);
+            padding-left: 20px;
+            margin-left: 20px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 25px;
+        }
+
+        .timeline-item::before {
+            content: "🌸";
+            position: absolute;
+            left: -29px;
+            top: 2px;
+            background: white;
+            font-size: 0.9rem;
+        }
+
+        /* --- 4. ผลงาน (Portfolio) --- */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            background: #FFF;
+            border: 1px solid #FFE4E4;
+            border-radius: 6px;
+            overflow: hidden;
+            transition: transform 0.3s;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--main-red);
+        }
+
+        .gallery-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .gallery-desc {
+            padding: 15px;
+        }
+
+        .gallery-desc h3 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        /* --- 5. ช่องทางการติดต่อ (Contact) --- */
+        .contact-container {
+            text-align: center;
+        }
+
+        .contact-grid {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .contact-item {
+            padding: 15px;
+            margin: 10px;
+            background: #FFF5F5;
+            border-radius: 8px;
+            border-bottom: 3px solid var(--main-red);
+            min-width: 150px;
+        }
+
+        /* Footer สไตล์จีน */
+        footer {
+            text-align: center;
+            padding: 30px;
+            background-color: var(--dark-red);
+            color: var(--gold);
+            font-size: 0.9rem;
+            border-top: 3px double var(--gold);
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="#home">หน้าแรก</a></li>
+            <li><a href="#about">ประวัติส่วนตัว</a></li>
+            <li><a href="#education">ประวัติการศึกษา</a></li>
+            <li><a href="#portfolio">ผลงาน</a></li>
+            <li><a href="#contact">ช่องทางการติดต่อ</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+
+        <section id="home">
+            <div class="home-accent">祥</div> <img src="https://via.placeholder.com/220" alt="รูปโปรไฟล์หลัก" class="profile-main-img">
+            <h1>แฟ้มสะสมผลงาน</h1>
+            <p style="font-size: 1.2rem; color: var(--main-red); font-weight: 600; margin-top: 10px;">PORTFOLIO</p>
+            <p style="margin-top: 15px; letter-spacing: 1px;">นาย / นางสาว [ชื่อ-นามสกุลของคุณ]</p>
+            <p>[ชื่อโรงเรียนของคุณ]</p>
+        </section>
+
+        <section id="about">
+            <h2 class="section-title">个人简历 | ประวัติส่วนตัว</h2>
+            <div class="about-grid">
+                <img src="https://via.placeholder.com/250x320" alt="รูปประวัติส่วนตัว" class="about-img">
+                <div class="about-text">
+                    <h3>ข้อมูลทั่วไป</h3>
+                    <ul class="info-list">
+                        <li><strong>ชื่อ-นามสกุล:</strong> นาย / นางสาว [ชื่อของคุณ]</li>
+                        <li><strong>ชื่อเล่น:</strong> [ชื่อเล่น]</li>
+                        <li><strong>วันเกิด:</strong> [วัน เดือน ปีเกิด]</li>
+                        <li><strong>แผนการเรียน:</strong> [เช่น วิทย์-คณิต / ศิลป์-ภาษาจีน]</li>
+                        <li><strong>งานอดิเรก:</strong> [งานอดิเรกของคุณ]</li>
+                        <li><strong>คติประจำใจ:</strong> 千里之行，始于足下 (การเดินทางพันลี้ เริ่มต้นที่ก้าวแรก)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="education">
+            <h2 class="section-title">教育背景 | ประวัติการศึกษา</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3>ปีการศึกษา [25xx - 25xx]</h3>
+                    <p><strong>ระดับประถมศึกษา:</strong> โรงเรียน [ชื่อโรงเรียน]</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>ปีการศึกษา [25xx - 25xx]</h3>
+                    <p><strong>ระดับมัธยมศึกษาตอนต้น:</strong> โรงเรียน [ชื่อโรงเรียน]</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>ปีการศึกษา [25xx - Present]</h3>
+                    <p><strong>ระดับมัธยมศึกษาตอนปลาย:</strong> โรงเรียน [ชื่อโรงเรียน]</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="portfolio">
+            <h2 class="section-title">个人作品 | ผลงานและกิจกรรม</h2>
+            <div class="gallery">
+                
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/300x180" alt="ผลงาน 1" class="gallery-img">
+                    <div class="gallery-desc">
+                        <h3>ชื่อกิจกรรม/รางวัลที่ 1</h3>
+                        <p style="font-size: 0.9rem; color: #777;">ได้รับรางวัลหรือเข้าร่วมเมื่อวันที่ [วัน/เดือน/ปี]</p>
+                        <p style="margin-top: 5px;">อธิบายรายละเอียดสั้นๆ เกี่ยวกับผลงานหรือสิ่งที่เราได้เรียนรู้จากกิจกรรมนี้</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/300x180" alt="ผลงาน 2" class="gallery-img">
+                    <div class="gallery-desc">
+                        <h3>ชื่อกิจกรรม/รางวัลที่ 2</h3>
+                        <p style="font-size: 0.9rem; color: #777;">ได้รับรางวัลหรือเข้าร่วมเมื่อวันที่ [วัน/เดือน/ปี]</p>
+                        <p style="margin-top: 5px;">อธิบายรายละเอียดสั้นๆ เกี่ยวกับผลงานหรือสิ่งที่เราได้เรียนรู้จากกิจกรรมนี้</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/300x180" alt="ผลงาน 3" class="gallery-img">
+                    <div class="gallery-desc">
+                        <h3>ชื่อกิจกรรม/รางวัลที่ 3</h3>
+                        <p style="font-size: 0.9rem; color: #777;">ได้รับรางวัลหรือเข้าร่วมเมื่อวันที่ [วัน/เดือน/ปี]</p>
+                        <p style="margin-top: 5px;">อธิบายรายละเอียดสั้นๆ เกี่ยวกับผลงานหรือสิ่งที่เราได้เรียนรู้จากกิจกรรมนี้</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2 class="section-title">联系方式 | ช่องทางการติดต่อ</h2>
+            <div class="contact-container">
+                <p>หากคุณต้องการข้อมูลเพิ่มเติมหรือติดต่อฉัน สามารถติดต่อได้ตามช่องทางด้านล่างนี้ครับ/ค่ะ</p>
+                <div class="contact-grid">
+                    <div class="contact-item">
+                        <strong>📞 เบอร์โทรศัพท์</strong>
+                        <p>[0xx-xxx-xxxx]</p>
+                    </div>
+                    <div class="contact-item">
+                        <strong>✉️ อีเมล</strong>
+                        <p>[your.email@email.com]</p>
+                    </div>
+                    <div class="contact-item">
+                        <strong>📱 Line ID</strong>
+                        <p>[Line_ID]</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>© 2026 [ชื่อของคุณ] Portfolio. All Rights Reserved. 祝คุณประสบความสำเร็จในการเข้ามหาวิทยาลัย! 🌸</p>
+    </footer>
+
+</body>
+</html>
