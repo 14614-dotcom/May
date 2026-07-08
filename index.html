@@ -3,82 +3,293 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>⚡ AMONRAT Y2K WORLD ⚡</title>
+    <title>⚡ AMONRAT Y2K TV WORLD ⚡</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Courier New', monospace, sans-serif; }
         
-        /* พื้นหลังลายตาราง Y2K ชมพูสดใส ไล่เฉดฟ้าพาสเทลตามรูป */
+        /* พื้นหลังลายจุดพิกเซลสีชมพูสลับฟ้าพาสเทล คงเดิม 100% */
         body { 
-            background: linear-gradient(180deg, #ffb6c1 0%, #ffc6ff 40%, #cbf3f0 100%);
-            background-image: linear-gradient(rgba(255, 255, 255, 0.3) 2px, transparent 2px), linear-gradient(90deg, rgba(255, 255, 255, 0.3) 2px, transparent 2px);
-            background-size: 25px 25px;
+            background: #ffc6ff;
+            background-image: radial-gradient(#00e5ff 20%, transparent 20%), radial-gradient(#ff4081 20%, transparent 20%);
+            background-size: 30px 30px;
+            background-position: 0 0, 15px 15px;
             color: #0c1a60;
             min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
             padding-bottom: 60px;
         }
         
-        /* เมนูสไตล์แถบเครื่องเกมพิกเซล */
-        nav { background: #0c1a60; padding: 12px; text-align: center; border-bottom: 4px solid #ff4081; box-shadow: 0 4px 0 #000; }
-        nav a { text-decoration: none; color: #fff; font-weight: bold; font-size: 13px; padding: 8px 16px; margin: 3px; border: 2px solid #ff4081; background: #ff79b0; box-shadow: 2px 2px 0px #000; display: inline-block; transition: 0.1s; }
-        nav a:hover, nav a.active { background: #00e5ff; color: #0c1a60; border-color: #0c1a60; box-shadow: 0px 0px 8px #00e5ff; transform: translateY(-2px); }
+        /* แถบเมนูด้านบนคงเดิมทุกประการ */
+        nav { 
+            background: #ff79b0; 
+            padding: 16px 10px; 
+            text-align: center; 
+            border-bottom: 5px solid #0c1a60;
+            box-shadow: 0 4px 0px rgba(0,0,0,0.15);
+        }
+        nav a { 
+            text-decoration: none; 
+            color: #0c1a60; 
+            font-weight: 900; 
+            font-size: 19px; 
+            text-transform: uppercase;
+            padding: 12px 30px; 
+            margin: 6px; 
+            background: #fff;
+            border: 4px solid #0c1a60;
+            display: inline-block;
+            box-shadow: 5px 5px 0px #000;
+            letter-spacing: 1px;
+            transition: 0.1s;
+        }
+        nav a:hover, nav a.active { 
+            background: #00e5ff;
+            box-shadow: 2px 2px 0px #000;
+            transform: translate(3px, 3px);
+        }
 
-        /* กล่องหน้าต่างคอมพิวเตอร์ Y2K Game Console */
-        .window { max-width: 600px; margin: 40px auto; background: #ffffff; border: 4px solid #0c1a60; box-shadow: 8px 8px 0px #0c1a60; border-radius: 12px; overflow: hidden; }
-        .window-header { background: linear-gradient(90deg, #ff4081, #ff79b0); padding: 10px 15px; color: #fff; font-weight: bold; font-size: 14px; display: flex; justify-content: space-between; align-items: center; border-bottom: 4px solid #0c1a60; }
-        .window-buttons span { display: inline-block; width: 16px; height: 16px; background: #fff; border: 2px solid #0c1a60; margin-left: 5px; text-align: center; line-height: 10px; font-size: 11px; color: #0c1a60; cursor: pointer; font-weight: bold; border-radius: 3px; }
+        /* ==================== ดีไซน์ใหม่: โทรทัศน์ Y2K จอตู้เรโทร ==================== */
         
-        .content { padding: 30px; text-align: center; position: relative; }
-        
-        /* สัญลักษณ์ตกแต่งวิบวับและหัวใจรอบๆ เว็บ */
-        .deco-star { color: #00e5ff; font-size: 24px; font-weight: bold; text-shadow: 2px 2px 0 #0c1a60; }
-        .deco-heart { color: #ff4081; font-size: 30px; animation: heartbeat 1.2s infinite; display: inline-block; }
-        
-        h1 { font-size: 26px; color: #0c1a60; margin: 15px 0; letter-spacing: 1px; font-weight: 900; text-shadow: 3px 3px 0px #ffc6ff; line-height: 1.4; }
-        
-        /* กรอบรูปหัวใจ หรือ กรอบย้อนยุค */
-        .photo-container { width: 220px; height: 220px; margin: 20px auto; border: 4px dashed #ff4081; padding: 10px; background: #fff; border-radius: 20px; box-shadow: 4px 4px 0 #0c1a60; }
-        .profile-img { width: 100%; height: 100%; object-fit: cover; border-radius: 12px; border: 2px solid #0c1a60; }
-        
-        /* ปุ่ม Press Start แบบในรูปตัวอย่าง */
-        .start-btn { display: inline-block; background: #00e5ff; color: #0c1a60; font-weight: bold; font-size: 18px; padding: 12px 35px; border: 3px solid #0c1a60; box-shadow: 4px 4px 0px #0c1a60; text-decoration: none; margin-top: 15px; border-radius: 8px; transition: 0.1s; }
-        .start-btn:hover { background: #ff4081; color: #fff; transform: translate(2px, 2px); box-shadow: 2px 2px 0px #0c1a60; }
+        /* เสาอากาศทีวีด้านบน */
+        .tv-antenna {
+            width: 120px;
+            height: 50px;
+            margin: 40px auto -45px auto;
+            position: relative;
+            z-index: 9;
+        }
+        .tv-antenna::before, .tv-antenna::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            width: 6px;
+            height: 60px;
+            background: #0c1a60;
+        }
+        .tv-antenna::before { left: 30px; transform: rotate(-35deg); transform-origin: bottom center; }
+        .tv-antenna::after { right: 30px; transform: rotate(35deg); transform-origin: bottom center; }
 
-        @keyframes heartbeat {
-            0% { transform: scale(1); }
-            20% { transform: scale(1.1); }
-            40% { transform: scale(1); }
+        /* ตัวเครื่องโทรทัศน์ */
+        .tv-container { 
+            max-width: 640px; 
+            margin: 40px auto; 
+            background: #ff4081; /* สีชมพูตัวเครื่องหลัก */
+            border: 6px solid #0c1a60; 
+            border-radius: 40px; /* ทำให้มุมโค้งมนเหมือนทีวีจอตู้หนาๆ */
+            box-shadow: 15px 15px 0px #0c1a60; 
+            position: relative;
+            z-index: 10;
+            display: flex;
+            padding: 25px;
+        }
+
+        /* หน้าจอทีวี (Screen) */
+        .tv-screen {
+            flex: 4;
+            background: #fff;
+            border: 5px solid #0c1a60;
+            border-radius: 25px; /* หน้าจอโค้งมนหลอดแก้ว */
+            padding: 30px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        /* แถบแสงสแกนไลน์จอตู้ทีวีเก่าแบบจางๆ ให้ดู Y2K */
+        .tv-screen::before {
+            content: " ";
+            display: block;
+            position: absolute;
+            top: 0; left: 0; bottom: 0; right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.05) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+            z-index: 2;
+            background-size: 100% 4px, 6px 100%;
+            pointer-events: none;
+        }
+
+        /* แผงควบคุมด้านขวาของทีวี (ปุ่มบิด/ลำโพง) */
+        .tv-controls {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            padding-left: 20px;
+            padding-top: 20px;
+        }
+        /* ปุ่มหมุนช่องและระดับเสียง */
+        .tv-knob {
+            width: 45px;
+            height: 45px;
+            background: #fff;
+            border: 4px solid #0c1a60;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            box-shadow: 3px 3px 0px #0c1a60;
+            position: relative;
+        }
+        .tv-knob::after {
+            content: '';
+            position: absolute;
+            top: 4px; left: 50%;
+            width: 4px; height: 12px;
+            background: #0c1a60;
+            transform: translateX(-50%);
+        }
+        /* รูลำโพงทีวีด้านล่าง */
+        .tv-speaker {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-top: 20px;
+        }
+        .speaker-bar {
+            height: 6px;
+            background: #0c1a60;
+            border-radius: 3px;
+        }
+
+        /* ------------------------------------------------------------- */
+
+        /* ดีเทลข้างในจอทีวี (ใช้เนื้อหาเดิมทั้งหมด) */
+        h1 { font-size: 24px; color: #0c1a60; margin-bottom: 25px; font-weight: 900; text-shadow: 2px 2px 0px #ffc6ff; }
+        
+        /* กรอบรูปถ่ายเดิม */
+        .photo-frame { 
+            width: 200px; 
+            height: 200px; 
+            margin: 0 auto 25px auto; 
+            background: #00e5ff; 
+            border: 4px solid #0c1a60; 
+            padding: 10px; 
+            box-shadow: 8px 8px 0px #ff79b0; 
+        }
+        .profile-img { width: 100%; height: 100%; object-fit: cover; border: 2px solid #0c1a60; }
+        
+        /* ปุ่ม ENTER เดิม */
+        .start-btn { 
+            display: inline-block; 
+            background: #ff4081; 
+            color: #fff; 
+            font-weight: 900; 
+            font-size: 18px; 
+            padding: 14px 40px; 
+            border: 4px solid #0c1a60; 
+            box-shadow: 5px 5px 0px #000; 
+            text-decoration: none; 
+            letter-spacing: 1px;
+        }
+        .start-btn:hover {
+            background: #00e5ff;
+            color: #0c1a60;
+            box-shadow: 2px 2px 0px #000;
+            transform: translate(3px, 3px);
+        }
+
+        /* ==================== โซนการตกแต่งรอบๆ (คงเดิม 100%) ==================== */
+        .y2k-sticker {
+            position: absolute;
+            z-index: 5;
+            filter: drop-shadow(6px 6px 0px #0c1a60);
+            pointer-events: none;
+        }
+
+        /* สติ๊กเกอร์ดาวกระจาย 8 แฉก */
+        .cyber-sparkle-8 {
+            width: 60px;
+            height: 60px;
+            background: #ffff00;
+            clip-path: polygon(
+                50% 0%, 58% 35%, 85% 15%, 65% 50%, 
+                100% 50%, 65% 58%, 85% 85%, 58% 65%, 
+                50% 100%, 42% 65%, 15% 85%, 35% 50%, 
+                0% 50%, 35% 42%, 15% 15%, 42% 35%
+            );
+            border: 4px solid #ffffff;
+            outline: 2px solid #0c1a60;
+        }
+        .st-spk1 { top: 140px; left: 5%; transform: rotate(-10deg) scale(1.2); background: #ffff00; }
+        .st-spk2 { top: 250px; right: 5%; transform: rotate(25deg); background: #00e5ff; }
+        .st-spk3 { bottom: 130px; left: 4%; transform: rotate(15deg) scale(1.1); background: #ffffff; }
+        .st-spk4 { bottom: 250px; right: 6%; transform: rotate(-20deg) scale(1.3); background: #ff4081; }
+
+        /* ป้ายข้อความสติ๊กเกอร์ชวนชมแฟ้มสะสมผลงาน */
+        .sticker-badge-tag {
+            background: #ffffff;
+            color: #0c1a60;
+            padding: 8px 18px;
+            font-size: 13px;
+            font-weight: 900;
+            border: 4px solid #ffffff;
+            outline: 3px solid #0c1a60;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .st-tag1 { top: 230px; left: 3%; transform: rotate(-12deg); background: #00e5ff; }
+        .st-tag2 { top: 150px; right: 4%; transform: rotate(8deg); background: #ff4081; color: #ffffff; }
+        .st-tag3 { bottom: 190px; left: 6%; transform: rotate(-5deg); background: #ffff00; }
+
+        /* ปรับสัดส่วนบนหน้าจอขนาดเล็ก */
+        @media (max-width: 768px) {
+            nav a { font-size: 16px; padding: 10px 16px; }
+            .y2k-sticker, .tv-antenna { display: none; }
+            .tv-container { flex-direction: column; margin: 20px; padding: 15px; }
+            .tv-controls { padding-left: 0; padding-top: 15px; flex-direction: row; justify-content: space-around; width: 100%; }
+            .tv-speaker { display: none; }
+            .tv-knob { margin-bottom: 0; }
         }
     </style>
 </head>
 <body>
 
+    <!-- บาร์เมนูด้านบนคงเดิม -->
     <nav>
         <a href="index.html" class="active">HOME</a>
         <a href="profile.html">PROFILE</a>
         <a href="education.html">EDUCATION</a>
-        <a href="portfolio.html">WORKS</a>
         <a href="award.html">AWARDS</a>
         <a href="contact.html">CONTACT</a>
     </nav>
 
-    <div class="window">
-        <div class="window-header">
-            <span>🕹️ AMONRAT_GAME_CONSOLE.sys</span>
-            <div class="window-buttons"><span>_</span><span>◽</span><span>X</span></div>
-        </div>
-        <div class="content">
-            <div><span class="deco-star">✦</span> <span class="deco-heart">♥</span> <span class="deco-star">✦</span></div>
-            
+    <!-- ดาวกระจายคงเดิม -->
+    <div class="y2k-sticker cyber-sparkle-8 st-spk1"></div>
+    <div class="y2k-sticker cyber-sparkle-8 st-spk2"></div>
+    <div class="y2k-sticker cyber-sparkle-8 st-spk3"></div>
+    <div class="y2k-sticker cyber-sparkle-8 st-spk4"></div>
+    
+    <!-- ป้ายข้อความชวนชมผลงานคงเดิมตามที่ปรับล่าสุด -->
+    <div class="y2k-sticker sticker-badge-tag st-tag1">AMONRAT_WORLD</div>
+    <div class="y2k-sticker sticker-badge-tag st-tag2">WELCOME_TO_MY_PORTFOLIO</div>
+    <div class="y2k-sticker sticker-badge-tag st-tag3">CLICK_TO_SEE_MY_WORK!</div>
+
+    <!-- เสาอากาศสำหรับโทรทัศน์เรโทร -->
+    <div class="tv-antenna"></div>
+
+    <!-- เปลี่ยนจากกรอบคอมพิวเตอร์เป็นตัวเครื่องโทรทัศน์ Y2K โค้งมนสุดชิค -->
+    <div class="tv-container">
+        
+        <!-- ฝั่งหน้าจอแสดงผลสารบัญพอร์ต -->
+        <div class="tv-screen">
             <h1>ยินดีต้อนรับสู่ portfolio ของ อมรรัตน์</h1>
-            
-            <div class="photo-container">
+            <div class="photo-frame">
                 <img src="me.jpg" alt="Amonrat" class="profile-img" onerror="this.src='https://placehold.co/200/ff4081/ffffff?text=AMONRAT'">
             </div>
-            
-            <p style="font-weight: bold; margin: 15px 0; color: #ff4081;">[ INSERT COIN TO START THE GAME ]</p>
-            
-            <a href="profile.html" class="start-btn">Press Start !</a>
+            <a href="profile.html" class="start-btn">CLICK TO ENTER ⚡</a>
         </div>
+
+        <!-- แผงปุ่มบิดด้านข้างเครื่องโทรทัศน์ -->
+        <div class="tv-controls">
+            <div class="tv-knob"></div>
+            <div class="tv-knob"></div>
+            <div class="tv-speaker">
+                <div class="speaker-bar"></div>
+                <div class="speaker-bar"></div>
+                <div class="speaker-bar"></div>
+                <div class="speaker-bar"></div>
+            </div>
+        </div>
+
     </div>
 
 </body>
