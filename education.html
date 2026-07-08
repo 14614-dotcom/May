@@ -3,40 +3,293 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ประวัติผลงานการเรียน</title>
+    <title>ประวัติการศึกษา | Cyberpunk Chinese AI Portfolio</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
-        body { background: #0d0f1a; color: #fff; min-height: 100vh; padding: 80px 20px 20px; text-align: center; }
-        nav { position: fixed; top: 20px; left: 50%; transform: translateX(-50%); }
-        nav a { color: #fff; text-decoration: none; margin: 0 15px; font-weight: bold; }
-        nav a:hover { color: #00f3ff; }
-        .card-container { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 30px; }
-        .card { width: 250px; padding: 20px; border: 1px solid #ff007f; border-radius: 10px; background: rgba(0,0,0,0.6); box-shadow: 0 0 10px #ff007f; }
-        h2 { color: #ff007f; }
+        /* ==========================================================================
+           1. DESIGN SYSTEM & BACKGROUND ANIMATION
+           ========================================================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f4f7fc;
+            color: #1a2a3a;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Ambient Background Animation */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(circle at 50% 50%, #ffffff 0%, #eef3fb 100%);
+            overflow: hidden;
+        }
+
+        .bg-animation::before, .bg-animation::after {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(0, 85, 255, 0.08) 0%, rgba(0, 191, 255, 0) 70%);
+            animation: floatNodes 15s infinite alternate ease-in-out;
+        }
+        .bg-animation::after {
+            width: 450px;
+            height: 450px;
+            left: auto;
+            right: -50px;
+            top: 40%;
+            background: radial-gradient(circle, rgba(0, 191, 255, 0.06) 0%, rgba(0, 85, 255, 0) 70%);
+            animation-duration: 20s;
+        }
+
+        @keyframes floatNodes {
+            0% { transform: translateY(0) scale(1) rotate(0deg); }
+            100% { transform: translateY(-50px) scale(1.1) rotate(45deg); }
+        }
+
+        .cyber-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-image: 
+                linear-gradient(rgba(0, 85, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 85, 255, 0.02) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+
+        /* ==========================================================================
+           2. NAVIGATION BAR (แถบเมนูหลัก)
+           ========================================================================== */
+        nav {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-bottom: 2px solid rgba(0, 85, 255, 0.15);
+            padding: 15px 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 800;
+            color: #0055ff;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .logo span { color: #00bfff; font-weight: 400; }
+        .logo::before { content: "☯"; font-size: 20px; color: #0055ff; animation: spin 8s linear infinite; }
+
+        @keyframes spin { 100% { transform: rotate(360deg); } }
+
+        nav ul { display: flex; list-style: none; gap: 10px; }
+        nav ul li a {
+            text-decoration: none;
+            color: #486581;
+            font-weight: 600;
+            font-size: 15px;
+            padding: 8px 18px;
+            border-radius: 8px;
+            transition: 0.3s;
+            border: 1px solid transparent;
+        }
+        nav ul li a:hover, nav ul li a.active {
+            color: #0055ff;
+            background: rgba(0, 85, 255, 0.06);
+            border: 1px solid rgba(0, 85, 255, 0.15);
+        }
+
+        /* ==========================================================================
+           3. EDUCATION CONTENT SECTION (Timeline ดิจิทัลจีน)
+           ========================================================================== */
+        .container {
+            max-width: 900px;
+            margin: 18vh auto 5vh;
+            padding: 0 20px;
+        }
+
+        .education-wrapper {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 20px 50px rgba(0, 85, 255, 0.05);
+            position: relative;
+        }
+
+        .education-wrapper::before {
+            content: "｢ 教育背景 ｣";
+            position: absolute;
+            top: 25px;
+            right: 30px;
+            font-size: 13px;
+            color: rgba(0, 85, 255, 0.3);
+            letter-spacing: 2px;
+        }
+
+        .education-wrapper h2 {
+            font-size: 26px;
+            color: #0055ff;
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .education-wrapper h2::before {
+            content: "◆";
+            color: #00bfff;
+            font-size: 18px;
+        }
+
+        /* โครงสร้างเส้น Timeline */
+        .timeline {
+            position: relative;
+            border-left: 2px dashed rgba(0, 85, 255, 0.3);
+            margin-left: 15px;
+            padding-left: 35px;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        /* แต่ละช่วงการศึกษา */
+        .timeline-item {
+            position: relative;
+        }
+
+        /* ไอคอนจุดตัดช่วงเวลา (Node ลายหยินหยางดิจิทัล) */
+        .timeline-item::before {
+            content: "☯";
+            position: absolute;
+            left: -47px;
+            top: -2px;
+            background: #ffffff;
+            color: #0055ff;
+            font-size: 20px;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(0, 85, 255, 0.2);
+        }
+
+        .time-period {
+            font-size: 14px;
+            font-weight: 700;
+            color: #00bfff;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+            font-family: monospace;
+        }
+
+        .institution-name {
+            font-size: 20px;
+            color: #1a2a3a;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .study-detail {
+            font-size: 15px;
+            color: #486581;
+            line-height: 1.6;
+            background: rgba(0, 85, 255, 0.02);
+            padding: 15px 20px;
+            border-radius: 12px;
+            border-left: 4px solid #0055ff;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .gpa-tag {
+            margin-top: 8px;
+            display: inline-block;
+            font-size: 13px;
+            font-weight: 600;
+            color: #0055ff;
+            background: rgba(0, 85, 255, 0.06);
+            padding: 4px 12px;
+            border-radius: 20px;
+            border: 1px solid rgba(0, 85, 255, 0.1);
+        }
     </style>
 </head>
 <body>
+
+    <!-- ส่วนพื้นหลังอนิเมชั่น -->
+    <div class="bg-animation"></div>
+    <div class="cyber-grid"></div>
+
+    <!-- แถบเมนูหลักที่เชื่อมโยงกันทุกหน้า -->
     <nav>
-        <a href="index.html">หน้าแรก</a>
-        <a href="education.html">ประวัติการศึกษา</a>
-        <a href="academic.html">ประวัติผลงานการเรียน</a>
-        <a href="projects.html">ผลงาน</a>
-        <a href="contact.html">ช่องทางการติดต่อ</a>
+        <div class="logo">CYBER<span>华 (Huá)</span></div>
+        <ul>
+            <li><a href="index.html">หน้าหลัก</a></li>
+            <li><a href="about.html">ประวัติส่วนตัว</a></li>
+            <li><a href="education.html" class="active">ประวัติการศึกษา</a></li>
+            <li><a href="projects.html">ผลงาน</a></li>
+            <li><a href="contact.html">ช่องทางการติดต่อ</a></li>
+        </ul>
     </nav>
 
-    <h2>ACADEMIC PERFORMANCE / ผลงานการเรียน</h2>
+    <!-- เนื้อหาประวัติการศึกษา -->
+    <div class="container">
+        <div class="education-wrapper">
+            <h2>ประวัติการศึกษา (Education History)</h2>
+            
+            <div class="timeline">
+                
+                <!-- การศึกษาระดับปัจจุบัน -->
+                <div class="timeline-item">
+                    <div class="time-period">2024 - PRESENT</div>
+                    <div class="institution-name">โรงเรียนพานทอง</div>
+                    <div class="study-detail">
+                        ระดับมัธยมศึกษาตอนปลาย แผนการเรียนวิทยาศาสตร์ - คณิตศาสตร์
+                        <br>
+                        <span class="gpa-tag">เกรดเฉลี่ยสะสม (GPAX): 3.82</span>
+                    </div>
+                </div>
 
-    <div class="card-container">
-        <div class="card">
-            <h3>วิชาคอมพิวเตอร์</h3>
-            <p>เกรด 4.00</p>
-            <p>เน้นการเขียนโปรแกรม และวิทยาการคำนวณ</p>
-        </div>
-        <div class="card">
-            <h3>วิชาเทคโนโลยี</h3>
-            <p>เกรด 4.00</p>
-            <p>การออกแบบระบบและเครือข่ายเบื้องต้น</p>
+                <!-- การศึกษาระดับก่อนหน้า -->
+                <div class="timeline-item">
+                    <div class="time-period">2021 - 2024</div>
+                    <div class="institution-name">โรงเรียนพานทอง</div>
+                    <div class="study-detail">
+                        ระดับมัธยมศึกษาตอนต้น
+                        <br>
+                        <span class="gpa-tag">เกรดเฉลี่ยสะสม (GPAX): 3.72</span>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </div>
+
 </body>
 </html>
