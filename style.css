@@ -1,367 +1,230 @@
-/* =========================
-   IT CYBER ANIMATION
-========================= */
-
-
-body{
-
-background:#020617;
-overflow-x:hidden;
-
+/* --- Global Reset & Fonts --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Kanit', sans-serif;
 }
 
-
-/* Background Network */
-
-.cyber-bg{
-
-position:fixed;
-
-top:0;
-left:0;
-
-width:100%;
-height:100%;
-
-z-index:-1;
-
-overflow:hidden;
-
-background:
-
-linear-gradient(
-90deg,
-rgba(0,229,255,.05) 1px,
-transparent 1px
-),
-
-linear-gradient(
-rgba(0,229,255,.05) 1px,
-transparent 1px
-);
-
-background-size:50px 50px;
-
+body {
+    /* พื้นหลังแนว AI: โทนขาวสว่าง + ลาย Grid ดิจิทัลละมุนๆ */
+    background-color: #f8fafc;
+    background-image: 
+        radial-gradient(at 0% 0%, rgba(244, 114, 182, 0.15) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, rgba(56, 189, 248, 0.15) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(192, 132, 252, 0.15) 0px, transparent 50%),
+        linear-gradient(rgba(226, 232, 240, 0.4) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(226, 232, 240, 0.4) 1px, transparent 1px);
+    background-size: 100% 100%, 100% 100%, 100% 100%, 30px 30px, 30px 30px;
+    color: #334155;
+    min-height: 100vh;
 }
 
-
-/* Floating Code */
-
-
-.cyber-bg span{
-
-position:absolute;
-
-color:#00e5ff;
-
-font-family:monospace;
-
-font-size:30px;
-
-font-weight:bold;
-
-opacity:.5;
-
-text-shadow:
-
-0 0 10px cyan;
-
-
-animation:
-
-floatCode 10s infinite linear;
-
-
+/* --- Navigation Bar (แถบเมนูด้านบน) --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(12px); /* เอฟเฟกต์กระจกใส */
+    border-bottom: 2px solid rgba(244, 114, 182, 0.3);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 20px rgba(244, 114, 182, 0.08);
 }
 
-
-
-
-.cyber-bg span:nth-child(1){
-
-left:10%;
-
-animation-delay:0s;
-
+.logo {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 1.5rem;
+    font-weight: bold;
+    background: linear-gradient(135deg, #ec4899, #8b5cf6, #06b6d4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-
-.cyber-bg span:nth-child(2){
-
-left:25%;
-
-animation-delay:2s;
-
+.navbar nav a {
+    color: #64748b;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    padding: 6px 12px;
+    border-radius: 20px;
 }
 
-
-.cyber-bg span:nth-child(3){
-
-left:40%;
-
-animation-delay:4s;
-
+.navbar nav a:hover, .navbar nav a.active {
+    color: #ec4899;
+    background: rgba(244, 114, 182, 0.1);
+    box-shadow: 0 0 10px rgba(244, 114, 182, 0.2);
 }
 
-
-.cyber-bg span:nth-child(4){
-
-left:55%;
-
-animation-delay:1s;
-
+/* --- Containers --- */
+.container, .container-page {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
 }
 
-
-.cyber-bg span:nth-child(5){
-
-left:70%;
-
-animation-delay:3s;
-
+.page-title {
+    font-family: 'Share Tech Mono', monospace;
+    background: linear-gradient(135deg, #ec4899, #8b5cf6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 2.2rem;
+    text-align: center;
+    margin-bottom: 5px;
 }
 
-
-.cyber-bg span:nth-child(6){
-
-left:80%;
-
-animation-delay:5s;
-
+.subtitle {
+    text-align: center;
+    color: #64748b;
+    margin-bottom: 40px;
 }
 
-
-.cyber-bg span:nth-child(7){
-
-left:90%;
-
-animation-delay:6s;
-
+/* --- Card Style (การ์ดกระจกขาวใส น่ารักล้ำสมัย) --- */
+.profile-card, .timeline-box, .stat-card, .award-card, .contact-info-card, .contact-form-card {
+    background: rgba(255, 255, 255, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    padding: 30px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(192, 132, 252, 0.12),
+                0 0 0 1px rgba(244, 114, 182, 0.15);
+    transition: all 0.3s ease;
 }
 
-
-
-
-@keyframes floatCode{
-
-
-0%{
-
-transform:
-
-translateY(100vh)
-
-rotate(0deg);
-
-
-opacity:0;
-
+.profile-card:hover, .award-card:hover, .stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(244, 114, 182, 0.2),
+                0 0 15px rgba(56, 189, 248, 0.2);
+    border-color: #f472b6;
 }
 
-
-
-20%{
-
-opacity:1;
-
+/* --- Profile Section Elements --- */
+.avatar-box img {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    border: 4px solid #fff;
+    box-shadow: 0 0 20px rgba(244, 114, 182, 0.4),
+                0 0 0 3px #06b6d4;
+    object-fit: cover;
 }
 
-
-
-100%{
-
-transform:
-
-translateY(-20vh)
-
-rotate(360deg);
-
-
-opacity:0;
-
+.tag {
+    font-family: 'Share Tech Mono', monospace;
+    color: #ec4899;
+    font-size: 0.9rem;
+    font-weight: bold;
 }
 
-
+.highlight {
+    background: linear-gradient(135deg, #ec4899, #8b5cf6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
 }
 
-
-
-
-
-
-
-/* Terminal */
-
-
-.terminal{
-
-
-background:
-
-rgba(0,0,0,.6);
-
-
-border:
-
-1px solid #00e5ff;
-
-
-width:350px;
-
-padding:20px;
-
-
-border-radius:15px;
-
-
-box-shadow:
-
-0 0 20px cyan;
-
-
-font-family:
-
-monospace;
-
-
-color:#00ff88;
-
-
-
+.skill-badge {
+    display: inline-block;
+    background: rgba(244, 114, 182, 0.1);
+    color: #db2777;
+    border: 1px solid rgba(244, 114, 182, 0.3);
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin: 4px;
 }
 
-
-
-
-
-#codeText::after{
-
-
-content:"_";
-
-
-animation:
-
-blink .7s infinite;
-
-
+/* --- Buttons (ปุ่มพาสเทลเรืองแสง) --- */
+.btn-popup {
+    background: linear-gradient(135deg, #f472b6, #a855f7);
+    border: none;
+    color: #ffffff;
+    font-weight: 600;
+    padding: 12px 28px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(244, 114, 182, 0.35);
 }
 
-
-
-@keyframes blink{
-
-
-50%{
-
-opacity:0;
-
+.btn-popup:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(244, 114, 182, 0.5),
+                0 0 15px rgba(168, 85, 247, 0.4);
 }
 
+/* --- Pop-up Modal (ขาวคลีน ละมุน) --- */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(15, 23, 42, 0.3);
+    backdrop-filter: blur(8px);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
 }
 
-
-
-
-
-
-
-/* Neon Button */
-
-
-button{
-
-
-background:#00e5ff;
-
-
-box-shadow:
-
-
-0 0 10px cyan,
-
-0 0 30px cyan;
-
-
-transition:.3s;
-
-
+.modal-content {
+    background: #ffffff;
+    border: 2px solid #f472b6;
+    padding: 30px;
+    border-radius: 24px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    box-shadow: 0 20px 40px rgba(244, 114, 182, 0.25);
+    animation: popIn 0.3s ease-out;
 }
 
-
-
-button:hover{
-
-
-transform:
-
-scale(1.1);
-
-
-box-shadow:
-
-
-0 0 20px cyan,
-
-0 0 60px #8b5cf6;
-
-
+@keyframes popIn {
+    from { transform: scale(0.85); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
 }
 
-
-
-
-
-
-
-/* Card IT Style */
-
-
-.card{
-
-
-background:
-
-rgba(255,255,255,.08);
-
-
-border:
-
-1px solid rgba(0,229,255,.4);
-
-
-backdrop-filter:
-
-blur(15px);
-
-
-
-transition:.4s;
-
-
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    color: #94a3b8;
+    cursor: pointer;
 }
 
+.close-btn:hover {
+    color: #ec4899;
+}
 
+.glow-line {
+    border: none;
+    height: 2px;
+    background: linear-gradient(90deg, #f472b6, #38bdf8);
+    margin: 15px 0;
+    border-radius: 2px;
+}
 
+/* --- Inputs & Form --- */
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 12px;
+    background: rgba(248, 250, 252, 0.8);
+    border: 1px solid rgba(203, 213, 225, 0.8);
+    border-radius: 12px;
+    color: #334155;
+    outline: none;
+    transition: 0.3s;
+}
 
-.card:hover{
-
-
-transform:
-
-translateY(-15px);
-
-
-border-color:
-
-#8b5cf6;
-
-
-box-shadow:
-
-
-0 0 30px #8b5cf6;
-
-
-
+.form-group input:focus, .form-group textarea:focus {
+    border-color: #f472b6;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(244, 114, 182, 0.2);
 }
