@@ -1,315 +1,338 @@
-/* ==========================
-   Google Font
-========================== */
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile | Portfolio</title>
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Orbitron:wght@500;700&display=swap');
+    <link rel="stylesheet" href="style.css">
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    scroll-behavior:smooth;
-}
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
 
-body{
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
 
-    font-family:'Poppins',sans-serif;
-    background:#0D1117;
-    color:white;
-    overflow-x:hidden;
+<body>
 
-}
+<div class="bg-animation"></div>
 
-/* ==========================
-Background Animation
-========================== */
+<!-- Navbar -->
 
-.bg-animation{
+<nav>
 
-    position:fixed;
-    width:100%;
-    height:100%;
-    z-index:-1;
+<div class="logo">
 
-    background:linear-gradient(
-    -45deg,
-    #0D1117,
-    #001B2E,
-    #003566,
-    #00B4D8);
+<i class="fa-solid fa-microchip"></i>
 
-    background-size:400% 400%;
+MY PORTFOLIO
 
-    animation:bgMove 15s infinite;
+</div>
 
-}
+<ul>
 
-@keyframes bgMove{
+<li><a href="index.html">Home</a></li>
 
-0%{
+<li><a href="profile.html" class="active">Profile</a></li>
 
-background-position:0% 50%;
+<li><a href="education.html">Education</a></li>
 
-}
+<li><a href="award.html">Awards</a></li>
 
-50%{
+<li><a href="contact.html">Contact</a></li>
 
-background-position:100% 50%;
+</ul>
 
-}
+</nav>
 
-100%{
+<!-- Profile -->
 
-background-position:0% 50%;
+<section class="hero">
 
-}
+<div class="left">
 
-}
+<img src="images/profile.jpg" alt="profile">
 
-/* ==========================
-Navbar
-========================== */
+</div>
 
-nav{
+<div class="right">
 
-display:flex;
+<h1>About Me</h1>
 
-justify-content:space-between;
+<h2>Computer Engineering Student</h2>
 
-align-items:center;
+<p>
 
-padding:20px 8%;
+สวัสดีครับ ผมเป็นนักศึกษาสาขาวิศวกรรมคอมพิวเตอร์
+ที่สนใจด้าน Web Development,
+Artificial Intelligence,
+IoT และ Cyber Security
 
-position:fixed;
+</p>
 
-top:0;
+<div class="buttons">
 
-width:100%;
+<button onclick="openPopup()">
 
-background:rgba(0,0,0,.4);
+Personal Info
 
-backdrop-filter:blur(15px);
+</button>
 
-z-index:999;
+</div>
 
-}
+</div>
 
-.logo{
+</section>
 
-font-family:'Orbitron',sans-serif;
+<!-- Information -->
 
-font-size:24px;
+<section class="cards">
 
-font-weight:bold;
+<div class="card">
 
-color:#00E5FF;
+<i class="fa-solid fa-user"></i>
 
-letter-spacing:2px;
+<h3>Personal</h3>
 
-}
+<p>
 
-.logo i{
+ชื่อ : YOUR NAME
 
-margin-right:10px;
+</p>
 
-}
+<p>
 
-nav ul{
+ชื่อเล่น : YOUR NICKNAME
 
-display:flex;
+</p>
 
-list-style:none;
+<p>
 
-gap:25px;
+อายุ : 20 ปี
 
-}
+</p>
 
-nav ul li a{
+</div>
 
-color:white;
+<div class="card">
 
-text-decoration:none;
+<i class="fa-solid fa-graduation-cap"></i>
 
-transition:.3s;
+<h3>Education</h3>
 
-font-weight:500;
+<p>
 
-}
+คณะวิศวกรรมศาสตร์
 
-nav ul li a:hover{
+</p>
 
-color:#00E5FF;
+<p>
 
-text-shadow:0 0 15px cyan;
+สาขาวิศวกรรมคอมพิวเตอร์
 
-}
+</p>
 
-.active{
+<p>
 
-color:#00E5FF;
+GPA : 3.50
 
-}
+</p>
 
-/* ==========================
-Hero
-========================== */
+</div>
 
-.hero{
+<div class="card">
 
-min-height:100vh;
+<i class="fa-solid fa-laptop-code"></i>
 
-display:flex;
+<h3>Programming</h3>
 
-align-items:center;
+<p>
 
-justify-content:center;
+HTML
 
-padding:100px 10%;
+</p>
 
-gap:80px;
+<p>
 
-}
+CSS
 
-.left img{
+</p>
 
-width:320px;
+<p>
 
-height:320px;
+JavaScript
 
-border-radius:50%;
+</p>
 
-object-fit:cover;
+<p>
 
-border:5px solid cyan;
+Python
 
-box-shadow:
+</p>
 
-0 0 25px cyan,
+<p>
 
-0 0 60px #00E5FF;
+C
 
-transition:.4s;
+</p>
 
-}
+</div>
 
-.left img:hover{
+<div class="card">
 
-transform:scale(1.05);
+<i class="fa-solid fa-heart"></i>
 
-}
+<h3>Hobby</h3>
 
-.right{
+<p>
 
-max-width:600px;
+Coding
 
-}
+</p>
 
-.right h3{
+<p>
 
-color:#7DF9FF;
+Gaming
 
-font-size:28px;
+</p>
 
-}
+<p>
 
-.right h1{
+Listening Music
 
-font-size:60px;
+</p>
 
-margin:10px 0;
+</div>
 
-}
+</section>
 
-.right span{
+<!-- Skills -->
 
-color:#00E5FF;
+<section class="skills">
 
-}
+<h2>My Skills</h2>
 
-.right h2{
+<div class="skill-card">
 
-font-size:30px;
+<div class="skill">
 
-height:45px;
+HTML
 
-color:#7DF9FF;
+<div class="bar">
 
-margin-bottom:20px;
+<div style="width:95%"></div>
 
-font-family:'Orbitron';
+</div>
 
-}
+</div>
 
-.right p{
+<div class="skill">
 
-line-height:1.8;
+CSS
 
-opacity:.9;
+<div class="bar">
 
-margin-bottom:35px;
+<div style="width:90%"></div>
 
-}
+</div>
 
-/* ==========================
-Buttons
-========================== */
+</div>
 
-.buttons{
+<div class="skill">
 
-display:flex;
+JavaScript
 
-gap:20px;
+<div class="bar">
 
-}
+<div style="width:80%"></div>
 
-button{
+</div>
 
-padding:15px 35px;
+</div>
 
-border:none;
+<div class="skill">
 
-border-radius:50px;
+Python
 
-background:#00E5FF;
+<div class="bar">
 
-color:black;
+<div style="width:75%"></div>
 
-font-weight:bold;
+</div>
 
-cursor:pointer;
+</div>
 
-transition:.3s;
+<div class="skill">
 
-font-size:16px;
+C Language
 
-}
+<div class="bar">
 
-button:hover{
+<div style="width:85%"></div>
 
-transform:translateY(-5px);
+</div>
 
-box-shadow:
+</div>
 
-0 0 20px cyan,
+</div>
 
-0 0 50px cyan;
+</section>
 
-}
+<!-- Popup -->
 
-.outline{
+<div class="popup" id="popup">
 
-background:transparent;
+<div class="popup-content">
 
-border:2px solid cyan;
+<span class="close" onclick="closePopup()">
 
-color:white;
+&times;
 
-}
+</span>
 
-.outline:hover{
+<h2>Personal Information</h2>
 
-background:cyan;
+<img src="images/profile.jpg">
 
-color:black;
+<p><strong>Name :</strong> YOUR NAME</p>
 
-}
+<p><strong>Nickname :</strong> YOUR NICKNAME</p>
+
+<p><strong>Birthday :</strong> xx/xx/xxxx</p>
+
+<p><strong>Age :</strong> 20</p>
+
+<p><strong>Faculty :</strong> Engineering</p>
+
+<p><strong>Major :</strong> Computer Engineering</p>
+
+<p><strong>University :</strong> YOUR UNIVERSITY</p>
+
+<p><strong>Email :</strong> your@email.com</p>
+
+<p><strong>Phone :</strong> 08x-xxx-xxxx</p>
+
+<p><strong>GitHub :</strong> github.com/yourname</p>
+
+</div>
+
+</div>
+
+<!-- Footer -->
+
+<footer>
+
+<p>
+
+© 2026 YOUR NAME
+
+Computer Engineering Portfolio
+
+</p>
+
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
