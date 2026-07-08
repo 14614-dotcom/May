@@ -1,175 +1,192 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>⚡ AMONRAT AWARDS - Y2K TV ⚡</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Courier New', monospace, sans-serif; }
-        
-        body { 
-            background: #ffc6ff;
-            background-image: radial-gradient(#00e5ff 20%, transparent 20%), radial-gradient(#ff4081 20%, transparent 20%);
-            background-size: 30px 30px;
-            background-position: 0 0, 15px 15px;
-            color: #0c1a60;
-            min-height: 100vh;
-            position: relative;
-            overflow-x: hidden;
-            padding-bottom: 60px;
-        }
-        
-        nav { 
-            background: #ff79b0; 
-            padding: 16px 10px; 
-            text-align: center; 
-            border-bottom: 5px solid #0c1a60;
-            box-shadow: 0 4px 0px rgba(0,0,0,0.15);
-        }
-        nav a { 
-            text-decoration: none; 
-            color: #0c1a60; 
-            font-weight: 900; 
-            font-size: 19px; 
-            text-transform: uppercase;
-            padding: 12px 30px; 
-            margin: 6px; 
-            background: #fff;
-            border: 4px solid #0c1a60;
-            display: inline-block;
-            box-shadow: 5px 5px 0px #000;
-            letter-spacing: 1px;
-            transition: 0.1s;
-        }
-        nav a:hover, nav a.active { 
-            background: #00e5ff;
-            box-shadow: 2px 2px 0px #000;
-            transform: translate(3px, 3px);
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Award | Portfolio</title>
 
-        /* --- โทรทัศน์ Y2K จอตู้ --- */
-        .tv-antenna { width: 120px; height: 50px; margin: 40px auto -45px auto; position: relative; z-index: 9; }
-        .tv-antenna::before, .tv-antenna::after { content: ''; position: absolute; bottom: 0; width: 6px; height: 60px; background: #0c1a60; }
-        .tv-antenna::before { left: 30px; transform: rotate(-35deg); transform-origin: bottom center; }
-        .tv-antenna::after { right: 30px; transform: rotate(35deg); transform-origin: bottom center; }
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;700&display=swap" rel="stylesheet">
 
-        .tv-container { 
-            max-width: 680px; margin: 40px auto; background: #ff4081; border: 6px solid #0c1a60; border-radius: 40px; 
-            box-shadow: 15px 15px 0px #0c1a60; position: relative; z-index: 10; display: flex; padding: 25px;
-        }
+<style>
 
-        .tv-screen { flex: 4; background: #fff; border: 5px solid #0c1a60; border-radius: 25px; padding: 25px 20px; position: relative; overflow: hidden; }
-        .tv-screen::before {
-            content: " "; display: block; position: absolute; top: 0; left: 0; bottom: 0; right: 0;
-            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.05) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
-            z-index: 2; background-size: 100% 4px, 6px 100%; pointer-events: none;
-        }
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Kanit',sans-serif;
+}
 
-        .tv-controls { flex: 1; display: flex; flex-direction: column; justify-content: flex-start; align-items: center; padding-left: 20px; padding-top: 20px; }
-        .tv-knob { width: 45px; height: 45px; background: #fff; border: 4px solid #0c1a60; border-radius: 50%; margin-bottom: 20px; box-shadow: 3px 3px 0px #0c1a60; position: relative; }
-        .tv-knob::after { content: ''; position: absolute; top: 4px; left: 50%; width: 4px; height: 12px; background: #0c1a60; transform: translateX(-50%); }
-        .tv-speaker { width: 100%; display: flex; flex-direction: column; gap: 6px; margin-top: 20px; }
-        .speaker-bar { height: 6px; background: #0c1a60; border-radius: 3px; }
+body{
+background:linear-gradient(135deg,#ffffff,#eef8ff,#d9eeff);
+}
 
-        /* --- เนื้อหาด้านใน Awards --- */
-        h1 { font-size: 26px; color: #0c1a60; margin-bottom: 20px; font-weight: 900; text-align: center; text-shadow: 2px 2px 0px #ffc6ff; }
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 8%;
+background:white;
+box-shadow:0 5px 15px rgba(0,0,0,.1);
+position:sticky;
+top:0;
+}
 
-        .award-card {
-            background: #fff;
-            border: 3px solid #0c1a60;
-            padding: 15px;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            box-shadow: 4px 4px 0px #00e5ff;
-        }
-        .award-icon {
-            font-size: 30px;
-            background: #ffff00;
-            padding: 10px;
-            border: 3px solid #0c1a60;
-        }
-        .award-text .title { font-weight: 900; color: #0c1a60; font-size: 16px; }
-        .award-text .year { font-weight: bold; color: #ff4081; font-size: 14px; }
+.logo{
+font-size:28px;
+font-weight:bold;
+color:#2f80ed;
+}
 
-        /* --- สติ๊กเกอร์คงเดิม --- */
-        .y2k-sticker { position: absolute; z-index: 5; filter: drop-shadow(6px 6px 0px #0c1a60); pointer-events: none; }
-        .cyber-sparkle-8 { width: 60px; height: 60px; background: #ffff00; clip-path: polygon(50% 0%, 58% 35%, 85% 15%, 65% 50%, 100% 50%, 65% 58%, 85% 85%, 58% 65%, 50% 100%, 42% 65%, 15% 85%, 35% 50%, 0% 50%, 35% 42%, 15% 15%, 42% 35%); border: 4px solid #ffffff; outline: 2px solid #0c1a60; }
-        .st-spk1 { top: 140px; left: 5%; transform: rotate(-10deg) scale(1.2); background: #ffff00; }
-        .st-spk2 { top: 250px; right: 5%; transform: rotate(25deg); background: #00e5ff; }
-        .st-spk3 { bottom: 130px; left: 4%; transform: rotate(15deg) scale(1.1); background: #ffffff; }
-        .st-spk4 { bottom: 250px; right: 6%; transform: rotate(-20deg) scale(1.3); background: #ff4081; }
+nav ul{
+display:flex;
+list-style:none;
+gap:18px;
+}
 
-        .sticker-badge-tag { background: #ffffff; color: #0c1a60; padding: 8px 18px; font-size: 13px; font-weight: 900; border: 4px solid #ffffff; outline: 3px solid #0c1a60; text-transform: uppercase; letter-spacing: 1px; }
-        .st-tag1 { top: 230px; left: 2%; transform: rotate(-12deg); background: #ffff00; }
-        .st-tag2 { top: 150px; right: 3%; transform: rotate(8deg); background: #ff4081; color: #ffffff; }
-        .st-tag3 { bottom: 190px; left: 4%; transform: rotate(-5deg); background: #00e5ff; }
+nav a{
+text-decoration:none;
+color:#2f80ed;
+font-weight:bold;
+padding:10px 18px;
+border-radius:30px;
+transition:.3s;
+}
 
-        @media (max-width: 768px) {
-            nav a { font-size: 16px; padding: 10px 16px; }
-            .y2k-sticker, .tv-antenna { display: none; }
-            .tv-container { flex-direction: column; margin: 20px; padding: 15px; }
-            .tv-controls { padding-left: 0; padding-top: 15px; flex-direction: row; justify-content: space-around; width: 100%; }
-            .tv-speaker { display: none; }
-            .tv-knob { margin-bottom: 0; }
-        }
-    </style>
+nav a:hover{
+background:#5eb4ff;
+color:white;
+}
+
+.container{
+width:90%;
+max-width:1100px;
+margin:50px auto;
+}
+
+.title{
+text-align:center;
+color:#2f80ed;
+margin-bottom:40px;
+font-size:40px;
+}
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
+}
+
+.card{
+background:white;
+padding:20px;
+border-radius:20px;
+box-shadow:0 10px 20px rgba(0,0,0,.1);
+text-align:center;
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-8px);
+}
+
+.card img{
+width:100%;
+height:220px;
+object-fit:cover;
+border-radius:15px;
+margin-bottom:15px;
+}
+
+.card h3{
+color:#2f80ed;
+margin-bottom:10px;
+}
+
+.card p{
+color:#555;
+line-height:1.7;
+}
+
+footer{
+margin-top:50px;
+padding:20px;
+text-align:center;
+background:#dcefff;
+}
+
+</style>
+
 </head>
+
 <body>
 
-    <nav>
-        <a href="index.html">HOME</a>
-        <a href="profile.html">PROFILE</a>
-        <a href="education.html">EDUCATION</a>
-        <a href="award.html" class="active">AWARDS</a>
-        <a href="contact.html">CONTACT</a>
-    </nav>
+<nav>
 
-    <div class="y2k-sticker cyber-sparkle-8 st-spk1"></div>
-    <div class="y2k-sticker cyber-sparkle-8 st-spk2"></div>
-    <div class="y2k-sticker cyber-sparkle-8 st-spk3"></div>
-    <div class="y2k-sticker cyber-sparkle-8 st-spk4"></div>
-    
-    <div class="y2k-sticker sticker-badge-tag st-tag1">WINNER</div>
-    <div class="y2k-sticker sticker-badge-tag st-tag2">MY_AWARDS</div>
-    <div class="y2k-sticker sticker-badge-tag st-tag3">BEST_OF_ME</div>
+<div class="logo">💙 Portfolio</div>
 
-    <div class="tv-antenna"></div>
+<ul>
 
-    <div class="tv-container">
-        <div class="tv-screen">
-            <h1>AWARDS</h1>
-            
-            <div class="award-card">
-                <div class="award-icon">🏆</div>
-                <div class="award-text">
-                    <div class="title">รางวัลชนะเลิศ การประกวด...</div>
-                    <div class="year">ปี พ.ศ. 25XX</div>
-                </div>
-            </div>
-            
-            <div class="award-card">
-                <div class="award-icon">🎖️</div>
-                <div class="award-text">
-                    <div class="title">รางวัลรองชนะเลิศ...</div>
-                    <div class="year">ปี พ.ศ. 25XX</div>
-                </div>
-            </div>
+<li><a href="index.html">Home</a></li>
+<li><a href="profile.html">Profile</a></li>
+<li><a href="education.html">Education</a></li>
+<li><a href="award.html">Award</a></li>
+<li><a href="contact.html">Contact</a></li>
 
-        </div>
+</ul>
 
-        <div class="tv-controls">
-            <div class="tv-knob"></div>
-            <div class="tv-knob"></div>
-            <div class="tv-speaker">
-                <div class="speaker-bar"></div>
-                <div class="speaker-bar"></div>
-                <div class="speaker-bar"></div>
-                <div class="speaker-bar"></div>
-            </div>
-        </div>
-    </div>
+</nav>
+
+<div class="container">
+
+<h1 class="title">🏆 ผลงานและเกียรติบัตร</h1>
+
+<div class="gallery">
+
+<div class="card">
+
+<img src="images/award1.jpg" alt="Award">
+
+<h3>ผลงานที่ 1</h3>
+
+<p>
+ใส่รายละเอียดของผลงานหรือเกียรติบัตรตรงนี้
+</p>
+
+</div>
+
+<div class="card">
+
+<img src="images/award2.jpg" alt="Award">
+
+<h3>ผลงานที่ 2</h3>
+
+<p>
+ใส่รายละเอียดของผลงานหรือกิจกรรมตรงนี้
+</p>
+
+</div>
+
+<div class="card">
+
+<img src="images/award3.jpg" alt="Award">
+
+<h3>ผลงานที่ 3</h3>
+
+<p>
+ใส่รายละเอียดของการแข่งขันหรือกิจกรรมตรงนี้
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<footer>
+
+© 2026 Portfolio | อมรรัตน์
+
+</footer>
 
 </body>
 </html>
