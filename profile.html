@@ -1,49 +1,106 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-<meta charset="UTF-8">
-<title>ประวัติส่วนตัว</title>
-<link rel="stylesheet" href="style.css">
-</head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ประวัติส่วนตัว | My Portfolio</title>
+    <!-- ลิงก์ไปยังสไตล์ของ index.html แต่อันนี้เขียนแยกไว้ในตัวเพื่อให้เปิดง่ายครับ -->
+    <style>
+        /* (ก๊อปปี้สไตล์หลักจากหน้าแรกมาเพื่อความต่อเนื่อง) */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', 'Prompt', sans-serif; }
+        body { background-color: #f4f7f6; color: #333; min-height: 100vh; display: flex; flex-direction: column; }
+        nav { background: linear-gradient(135deg, #0f2027, #203a43, #2c5364); padding: 15px 50px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
+        .logo { color: #00ffff; font-size: 24px; font-weight: bold; }
+        nav ul { display: flex; list-style: none; }
+        nav ul li { margin-left: 25px; }
+        nav ul li a { color: #fff; text-decoration: none; padding: 8px 15px; border-radius: 4px; transition: 0.3s; }
+        nav ul li a:hover, nav ul li a.active { color: #00ffff; background: rgba(255, 255, 255, 0.1); }
+        .container { max-width: 1200px; margin: 40px auto; padding: 20px; flex: 1; }
+        footer { background: #0f2027; color: #888; text-align: center; padding: 20px; margin-top: auto; }
 
+        /* สไตล์เฉพาะหน้า About */
+        .profile-wrapper {
+            display: flex;
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            gap: 40px;
+            align-items: center;
+        }
+        .profile-img {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            background: #0076ff; /* วงกลมสมมติแทนรูปภาพ สามารถใส่รูปจริงในภายหลัง */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+            border: 5px solid #00ffff;
+            box-shadow: 0 0 20px rgba(0, 210, 255, 0.3);
+        }
+        .profile-info h2 {
+            font-size: 32px;
+            color: #0f2027;
+            margin-bottom: 15px;
+        }
+        .profile-info p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 10px;
+        }
+        .skills {
+            margin-top: 25px;
+        }
+        .skill-badge {
+            display: inline-block;
+            background: #e6f0fa;
+            color: #0056b3;
+            padding: 6px 15px;
+            border-radius: 20px;
+            margin: 5px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+    </style>
+</head>
 <body>
 
-<nav>
+    <nav>
+        <div class="logo">TECH_PORTFOLIO</div>
+        <ul>
+            <li><a href="index.html">หน้าหลัก</a></li>
+            <li><a href="about.html" class="active">ประวัติส่วนตัว</a></li>
+            <li><a href="education.html">ประวัติการศึกษา</a></li>
+            <li><a href="projects.html">ผลงาน</a></li>
+            <li><a href="contact.html">ช่องทางการติดต่อ</a></li>
+        </ul>
+    </nav>
 
-<div class="logo">Portfolio</div>
+    <div class="container">
+        <div class="profile-wrapper">
+            <div class="profile-img">
+                [ รูปของคุณ ]
+            </div>
+            <div class="profile-info">
+                <h2>ชื่อ-นามสกุล ของคุณ</h2>
+                <p><strong>อาชีพ / สิ่งที่สนใจ:</strong> นักพัฒนาเว็บไซต์ / ผู้คลั่งไคล้เทคโนโลยี</p>
+                <p>สวัสดีครับ! ผมเป็นคนที่ชอบศึกษาเรื่องราวเกี่ยวกับเทคโนโลยีและการเขียนโค้ด มุ่งมั่นที่จะสร้างสรรค์นวัตกรรมและเว็บไซต์ที่มีประโยชน์และใช้งานง่าย</p>
+                
+                <div class="skills">
+                    <p><strong>ทักษะความสามารถ (Skills):</strong></p>
+                    <span class="skill-badge">HTML5</span>
+                    <span class="skill-badge">CSS3</span>
+                    <span class="skill-badge">JavaScript</span>
+                    <span class="skill-badge">UX/UI Design</span>
+                </div>
+            </div>
+        </div>
+    </div>
 
-<ul>
-
-<li><a href="index.html">หน้าหลัก</a></li>
-
-<li><a href="about.html">ประวัติส่วนตัว</a></li>
-
-<li><a href="education.html">ประวัติการศึกษา</a></li>
-
-<li><a href="portfolio.html">ผลงาน</a></li>
-
-<li><a href="contact.html">ติดต่อ</a></li>
-
-</ul>
-
-</nav>
-
-<div class="container">
-
-<h1>ประวัติส่วนตัว</h1>
-
-<img src="images/profile.jpg" class="profile">
-
-<p>ชื่อ : นางสาวอมรรัตน์ ศรีโม่ง</p>
-
-<p>อายุ 18 ปี:</p>
-
-<p>วันเกิด :29 มกราคม 2551</p>
-
-
-<p>ความสามารถ :ร้องเพลง</p>
-
-</div>
-
+    <footer>&copy; 2026 Tech Portfolio. All Rights Reserved.</footer>
 </body>
 </html>
