@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Awards & Projects | IT Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo">&lt;IT.Portfolio/&gt;</div>
+        <nav>
+            <a href="index.html">Profile</a>
+            <a href="education.html">Education</a>
+            <a href="award.html" class="active">Awards</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main class="container-page">
+        <h1 class="page-title">&lt;HONORS_&amp;_PROJECTS /&gt;</h1>
+        <p class="subtitle">ผลงาน การแข่งขัน และเกียรติบัตรที่ได้รับ</p>
+
+        <div class="gallery-grid">
+
+            <div class="award-card" onclick="openImgModal('https://via.placeholder.com/600x400', 'รางวัลชนะเลิศ การแข่งขันพัฒนาเว็บไซต์', 'ได้รับรางวัลชนะเลิศระดับจังหวัด ในการแข่งขันเขียนโค้ดพัฒนาเว็บไซต์เพื่อชุมชน')">
+                <div class="card-img">
+                    <img src="https://via.placeholder.com/400x250" alt="Award 1">
+                    <div class="overlay"><i class="fa-solid fa-magnifying-glass-plus"></i> คลิกเพื่อดูขยาย</div>
+                </div>
+                <div class="card-info">
+                    <span class="badge">NATIONAL</span>
+                    <h3>รางวัลชนะเลิศ พัฒนาเว็บไซต์</h3>
+                    <p>การแข่งขันระดับจังหวัด ปี 2025</p>
+                </div>
+            </div>
+
+            <div class="award-card" onclick="openImgModal('https://via.placeholder.com/600x400', 'เกียรติบัตรผ่านการอบรม IT Camp', 'ผ่านการเข้าร่วมค่ายเจาะลึกระบบเครือข่ายและความปลอดภัยทางไซเบอร์')">
+                <div class="card-img">
+                    <img src="https://via.placeholder.com/400x250" alt="Award 2">
+                    <div class="overlay"><i class="fa-solid fa-magnifying-glass-plus"></i> คลิกเพื่อดูขยาย</div>
+                </div>
+                <div class="card-info">
+                    <span class="badge purple">CERTIFICATE</span>
+                    <h3>อบรมเชิงปฏิบัติการ IT Camp</h3>
+                    <p>มหาวิทยาลัยเทคโนโลยี... ปี 2024</p>
+                </div>
+            </div>
+
+            <div class="award-card" onclick="openImgModal('https://via.placeholder.com/600x400', 'Google IT Support Certificate', 'ผ่านการเรียนหลักสูตรออนไลน์ด้าน IT Support & Networking บน Coursera')">
+                <div class="card-img">
+                    <img src="https://via.placeholder.com/400x250" alt="Award 3">
+                    <div class="overlay"><i class="fa-solid fa-magnifying-glass-plus"></i> คลิกเพื่อดูขยาย</div>
+                </div>
+                <div class="card-info">
+                    <span class="badge purple">ONLINE COURSE</span>
+                    <h3>Google IT Support Certificate</h3>
+                    <p>Coursera Professional Certificate</p>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <div id="imageModal" class="modal">
+        <div class="modal-content modal-large">
+            <span class="close-btn" onclick="closeImgModal()">&times;</span>
+            <img id="modalImg" src="" alt="Certificate Detail" class="modal-img">
+            <h2 id="modalTitle" style="margin-top: 15px;"></h2>
+            <hr class="glow-line">
+            <p id="modalDesc" class="modal-desc"></p>
+        </div>
+    </div>
+
+    <script>
+        function openImgModal(imgSrc, title, desc) {
+            document.getElementById("modalImg").src = imgSrc;
+            document.getElementById("modalTitle").innerText = title;
+            document.getElementById("modalDesc").innerText = desc;
+            document.getElementById("imageModal").style.display = "flex";
+        }
+
+        function closeImgModal() {
+            document.getElementById("imageModal").style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            let modal = document.getElementById("imageModal");
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
