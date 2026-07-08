@@ -1,51 +1,140 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portfolio</title>
-
-<link rel="stylesheet" href="style.css">
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>หน้าหลัก | My Portfolio</title>
+    <style>
+        /* CSS ร่วมสำหรับทุกหน้า (Global Styles) */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, 'Prompt';
+        }
+        body {
+            background-color: #f4f7f6;
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        /* แถบเมนู (Navbar) */
+        nav {
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            padding: 15px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .logo {
+            color: #00ffff;
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        nav ul li {
+            margin-left: 25px;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            padding: 8px 15px;
+            border-radius: 4px;
+        }
+        nav ul li a:hover, nav ul li a.active {
+            color: #00ffff;
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+        }
+        /* ส่วนเนื้อหา (Content) */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+            flex: 1;
+        }
+        .hero-section {
+            text-align: center;
+            padding: 80px 20px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-top: 5px solid #0056b3;
+        }
+        h1 {
+            font-size: 48px;
+            color: #0f2027;
+            margin-bottom: 20px;
+        }
+        h1 span {
+            color: #0076ff;
+        }
+        p.subtitle {
+            font-size: 20px;
+            color: #666;
+            margin-bottom: 40px;
+        }
+        .cta-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #0076ff, #00d2ff);
+            color: white;
+            padding: 15px 35px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(0, 118, 255, 0.4);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 118, 255, 0.6);
+        }
+        /* ส่วนท้าย (Footer) */
+        footer {
+            background: #0f2027;
+            color: #888;
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+            margin-top: auto;
+        }
+    </style>
 </head>
-
 <body>
 
-<nav>
+    <nav>
+        <div class="logo">TECH_PORTFOLIO</div>
+        <ul>
+            <li><a href="index.html" class="active">หน้าหลัก</a></li>
+            <li><a href="about.html">ประวัติส่วนตัว</a></li>
+            <li><a href="education.html">ประวัติการศึกษา</a></li>
+            <li><a href="projects.html">ผลงาน</a></li>
+            <li><a href="contact.html">ช่องทางการติดต่อ</a></li>
+        </ul>
+    </nav>
 
-<div class="logo">
-Portfolio
-</div>
+    <div class="container">
+        <div class="hero-section">
+            <h1>ยินดีต้อนรับสู่ <span>Portfolio</span> ของฉัน</h1>
+            <p class="subtitle">พื้นที่รวบรวมประวัติ การศึกษา ผลงาน และทักษะทางด้านเทคโนโลยี</p>
+            <a href="about.html" class="cta-btn">ทำความรู้จักกันเลย</a>
+        </div>
+    </div>
 
-<ul>
-
-<li><a href="index.html">หน้าหลัก</a></li>
-
-<li><a href="about.html">ประวัติส่วนตัว</a></li>
-
-<li><a href="education.html">ประวัติการศึกษา</a></li>
-
-<li><a href="portfolio.html">ผลงาน</a></li>
-
-<li><a href="contact.html">ติดต่อ</a></li>
-
-</ul>
-
-</nav>
-
-<section class="hero">
-
-<h1>WELCOME TO MY PORTFOLIO</h1>
-
-<p>เว็บไซต์แสดงผลงานส่วนตัว</p>
-
-<a href="about.html" class="btn">เริ่มต้น</a>
-
-</section>
-
-<script src="script.js"></script>
+    <footer>
+        &copy; 2026 Tech Portfolio. All Rights Reserved.
+    </footer>
 
 </body>
-</html
+</html>
