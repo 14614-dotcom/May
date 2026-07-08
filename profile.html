@@ -3,62 +3,296 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>⚡ PROFILE - AMONRAT ⚡</title>
+    <title>⚡ AMONRAT PROFILE - Y2K TV ⚡</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Courier New', monospace, sans-serif; }
+        
+        /* พื้นหลังลายจุดพิกเซลสีชมพูสลับฟ้าพาสเทล คงเดิม 100% */
         body { 
-            background: linear-gradient(180deg, #ffb6c1 0%, #ffc6ff 40%, #cbf3f0 100%);
-            background-image: linear-gradient(rgba(255, 255, 255, 0.3) 2px, transparent 2px), linear-gradient(90deg, rgba(255, 255, 255, 0.3) 2px, transparent 2px);
-            background-size: 25px 25px; color: #0c1a60; min-height: 100vh;
+            background: #ffc6ff;
+            background-image: radial-gradient(#00e5ff 20%, transparent 20%), radial-gradient(#ff4081 20%, transparent 20%);
+            background-size: 30px 30px;
+            background-position: 0 0, 15px 15px;
+            color: #0c1a60;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+            padding-bottom: 60px;
         }
-        nav { background: #0c1a60; padding: 12px; text-align: center; border-bottom: 4px solid #ff4081; box-shadow: 0 4px 0 #000; }
-        nav a { text-decoration: none; color: #fff; font-weight: bold; font-size: 13px; padding: 8px 16px; margin: 3px; border: 2px solid #ff4081; background: #ff79b0; box-shadow: 2px 2px 0px #000; display: inline-block; }
-        nav a:hover, nav a.active { background: #00e5ff; color: #0c1a60; border-color: #0c1a60; box-shadow: 0px 0px 8px #00e5ff; }
+        
+        /* แถบเมนูด้านบนคงเดิมทุกประการ (หน้า PROFILE จะขึ้นสถานะ active) */
+        nav { 
+            background: #ff79b0; 
+            padding: 16px 10px; 
+            text-align: center; 
+            border-bottom: 5px solid #0c1a60;
+            box-shadow: 0 4px 0px rgba(0,0,0,0.15);
+        }
+        nav a { 
+            text-decoration: none; 
+            color: #0c1a60; 
+            font-weight: 900; 
+            font-size: 19px; 
+            text-transform: uppercase;
+            padding: 12px 30px; 
+            margin: 6px; 
+            background: #fff;
+            border: 4px solid #0c1a60;
+            display: inline-block;
+            box-shadow: 5px 5px 0px #000;
+            letter-spacing: 1px;
+            transition: 0.1s;
+        }
+        nav a:hover, nav a.active { 
+            background: #00e5ff;
+            box-shadow: 2px 2px 0px #000;
+            transform: translate(3px, 3px);
+        }
 
-        .window { max-width: 600px; margin: 40px auto; background: #ffffff; border: 4px solid #0c1a60; box-shadow: 8px 8px 0px #0c1a60; border-radius: 12px; overflow: hidden; }
-        .window-header { background: linear-gradient(90deg, #ff4081, #ff79b0); padding: 10px 15px; color: #fff; font-weight: bold; font-size: 14px; display: flex; justify-content: space-between; border-bottom: 4px solid #0c1a60; }
-        
-        .content { padding: 25px; }
-        h1 { text-align: center; font-size: 22px; color: #0c1a60; margin-bottom: 25px; border-bottom: 3px dotted #ff4081; padding-bottom: 10px; text-shadow: 2px 2px #ffc6ff; }
-        
-        .info-box { background: #fff5f8; border: 2px solid #0c1a60; padding: 12px 15px; border-radius: 8px; margin-bottom: 12px; display: flex; justify-content: space-between; box-shadow: 3px 3px 0 #ffc6ff; }
-        .label { font-weight: bold; color: #ff4081; }
-        .value { font-weight: bold; color: #0c1a60; }
-        
-        .skill-badge { background: #00e5ff; color: #0c1a60; border: 2px solid #0c1a60; padding: 4px 12px; border-radius: 6px; font-size: 12px; font-weight: bold; display: inline-block; margin: 4px; box-shadow: 2px 2px 0 #ff4081; }
+        /* ==================== ดีไซน์โทรทัศน์ Y2K จอตู้เรโทร คงเดิม ==================== */
+        .tv-antenna {
+            width: 120px;
+            height: 50px;
+            margin: 40px auto -45px auto;
+            position: relative;
+            z-index: 9;
+        }
+        .tv-antenna::before, .tv-antenna::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            width: 6px;
+            height: 60px;
+            background: #0c1a60;
+        }
+        .tv-antenna::before { left: 30px; transform: rotate(-35deg); transform-origin: bottom center; }
+        .tv-antenna::after { right: 30px; transform: rotate(35deg); transform-origin: bottom center; }
+
+        .tv-container { 
+            max-width: 680px; /* ปรับให้กว้างขึ้นเล็กน้อยเพื่อให้ใส่ข้อความโปรไฟล์สวย */
+            margin: 40px auto; 
+            background: #ff4081; 
+            border: 6px solid #0c1a60; 
+            border-radius: 40px; 
+            box-shadow: 15px 15px 0px #0c1a60; 
+            position: relative;
+            z-index: 10;
+            display: flex;
+            padding: 25px;
+        }
+
+        .tv-screen {
+            flex: 4;
+            background: #fff;
+            border: 5px solid #0c1a60;
+            border-radius: 25px; 
+            padding: 25px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        .tv-screen::before {
+            content: " ";
+            display: block;
+            position: absolute;
+            top: 0; left: 0; bottom: 0; right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.05) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+            z-index: 2;
+            background-size: 100% 4px, 6px 100%;
+            pointer-events: none;
+        }
+
+        .tv-controls {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            padding-left: 20px;
+            padding-top: 20px;
+        }
+        .tv-knob {
+            width: 45px;
+            height: 45px;
+            background: #fff;
+            border: 4px solid #0c1a60;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            box-shadow: 3px 3px 0px #0c1a60;
+            position: relative;
+        }
+        .tv-knob::after {
+            content: '';
+            position: absolute;
+            top: 4px; left: 50%;
+            width: 4px; height: 12px;
+            background: #0c1a60;
+            transform: translateX(-50%);
+        }
+        .tv-speaker {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-top: 20px;
+        }
+        .speaker-bar { height: 6px; background: #0c1a60; border-radius: 3px; }
+
+        /* ==================== ดีเทลเนื้อหาในหน้า PROFILE ==================== */
+        h1 { 
+            font-size: 26px; 
+            color: #0c1a60; 
+            margin-bottom: 20px; 
+            font-weight: 900; 
+            text-align: center;
+            text-shadow: 2px 2px 0px #ffc6ff; 
+        }
+
+        /* กล่องแสดงข้อมูลส่วนตัว */
+        .profile-info {
+            background: #fdf2ff;
+            border: 3px solid #0c1a60;
+            padding: 15px;
+            box-shadow: 5px 5px 0px #00e5ff;
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        .info-item {
+            font-size: 15px;
+            font-weight: bold;
+            line-height: 2;
+            color: #0c1a60;
+            border-bottom: 2px dashed rgba(12, 26, 96, 0.2);
+            padding: 4px 0;
+        }
+        .info-item:last-child { border-bottom: none; }
+        .info-label { color: #ff4081; font-weight: 900; }
+
+        /* กล่องสกิล/ความสามารถแบบจี๊ดๆ */
+        .skills-box {
+            text-align: left;
+            margin-top: 15px;
+        }
+        .skills-title { font-weight: 900; font-size: 16px; margin-bottom: 8px; color: #0c1a60; }
+        .skills-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+        .skill-tag {
+            background: #00e5ff;
+            color: #0c1a60;
+            padding: 6px 12px;
+            font-size: 12px;
+            font-weight: 900;
+            border: 2px solid #0c1a60;
+            box-shadow: 2px 2px 0px #000;
+        }
+
+        /* ==================== โซนการตกแต่งรอบๆ คงเดิม 100% ==================== */
+        .y2k-sticker {
+            position: absolute;
+            z-index: 5;
+            filter: drop-shadow(6px 6px 0px #0c1a60);
+            pointer-events: none;
+        }
+        .cyber-sparkle-8 {
+            width: 60px;
+            height: 60px;
+            background: #ffff00;
+            clip-path: polygon(50% 0%, 58% 35%, 85% 15%, 65% 50%, 100% 50%, 65% 58%, 85% 85%, 58% 65%, 50% 100%, 42% 65%, 15% 85%, 35% 50%, 0% 50%, 35% 42%, 15% 15%, 42% 35%);
+            border: 4px solid #ffffff;
+            outline: 2px solid #0c1a60;
+        }
+        .st-spk1 { top: 140px; left: 5%; transform: rotate(-10deg) scale(1.2); background: #ffff00; }
+        .st-spk2 { top: 250px; right: 5%; transform: rotate(25deg); background: #00e5ff; }
+        .st-spk3 { bottom: 130px; left: 4%; transform: rotate(15deg) scale(1.1); background: #ffffff; }
+        .st-spk4 { bottom: 250px; right: 6%; transform: rotate(-20deg) scale(1.3); background: #ff4081; }
+
+        .sticker-badge-tag {
+            background: #ffffff;
+            color: #0c1a60;
+            padding: 8px 18px;
+            font-size: 13px;
+            font-weight: 900;
+            border: 4px solid #ffffff;
+            outline: 3px solid #0c1a60;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .st-tag1 { top: 230px; left: 2%; transform: rotate(-12deg); background: #00e5ff; }
+        .st-tag2 { top: 150px; right: 3%; transform: rotate(8deg); background: #ff4081; color: #ffffff; }
+        .st-tag3 { bottom: 190px; left: 4%; transform: rotate(-5deg); background: #ffff00; }
+
+        @media (max-width: 768px) {
+            nav a { font-size: 16px; padding: 10px 16px; }
+            .y2k-sticker, .tv-antenna { display: none; }
+            .tv-container { flex-direction: column; margin: 20px; padding: 15px; }
+            .tv-controls { padding-left: 0; padding-top: 15px; flex-direction: row; justify-content: space-around; width: 100%; }
+            .tv-speaker { display: none; }
+            .tv-knob { margin-bottom: 0; }
+        }
     </style>
 </head>
 <body>
 
+    <!-- บาร์เมนูด้านบน (ตั้ง active ที่ PROFILE) -->
     <nav>
         <a href="index.html">HOME</a>
         <a href="profile.html" class="active">PROFILE</a>
         <a href="education.html">EDUCATION</a>
-        <a href="portfolio.html">WORKS</a>
         <a href="award.html">AWARDS</a>
         <a href="contact.html">CONTACT</a>
     </nav>
 
-    <div class="window">
-        <div class="window-header">
-            <span>📝 MY_CHARACTER_STATS.txt</span>
-            <div class="window-buttons"><span>_</span><span>◽</span><span>X</span></div>
-        </div>
-        <div class="content">
-            <h1>🌸 PROFILE (ข้อมูลส่วนตัว) 🌸</h1>
-            <div class="info-box"><span class="label">ชื่อ-นามสกุล:</span><span class="value">นางสาว อมรรัตน์ [ใส่นามสกุล]</span></div>
-            <div class="info-box"><span class="label">ชื่อเล่น:</span><span class="value">[ใส่ชื่อเล่น]</span></div>
-            <div class="info-box"><span class="label">อายุ:</span><span class="value">18 ปี (ม.6)</span></div>
-            <div class="info-box"><span class="label">วันเดือนปีเกิด:</span><span class="value">[ใส่วันเกิด]</span></div>
+    <!-- สติ๊กเกอร์ตกแต่งรอบข้าง คงเดิมคงความจี๊ด -->
+    <div class="y2k-sticker cyber-sparkle-8 st-spk1"></div>
+    <div class="y2k-sticker cyber-sparkle-8 st-spk2"></div>
+    <div class="y2k-sticker cyber-sparkle-8 st-spk3"></div>
+    <div class="y2k-sticker cyber-sparkle-8 st-spk4"></div>
+    
+    <div class="y2k-sticker sticker-badge-tag st-tag1">ABOUT_ME</div>
+    <div class="y2k-sticker sticker-badge-tag st-tag2">MY_HISTORY.SYS</div>
+    <div class="y2k-sticker sticker-badge-tag st-tag3">AMONRAT_INFO</div>
+
+    <!-- เสาอากาศเรโทร -->
+    <div class="tv-antenna"></div>
+
+    <!-- ตัวเครื่องโทรทัศน์ Y2K -->
+    <div class="tv-container">
+        
+        <!-- หน้าจอแสดงผลข้อมูลโปรไฟล์ -->
+        <div class="tv-screen">
+            <h1>MY PROFILE</h1>
             
-            <div style="margin-top: 20px; border: 2px solid #0c1a60; padding: 15px; border-radius: 8px; background: #fff5f8;">
-                <p class="label" style="margin-bottom: 10px; font-weight: bold;">🎯 SPECIAL SKILLS (ความสามารถพิเศษ):</p>
-                <span class="skill-badge">💕 Web Development</span>
-                <span class="skill-badge">💕 Graphic Canva</span>
-                <span class="skill-badge">💕 English Communication</span>
-                <span class="skill-badge">💕 Singing & Dance</span>
+            <!-- กล่องข้อมูลส่วนตัว (หนูสามารถเปลี่ยนข้อความภาษาไทยในนี้ได้เลยนะ) -->
+            <div class="profile-info">
+                <div class="info-item"><span class="info-label">ชื่อ-นามสกุล:</span> อมรรัตน์ [ใส่ชื่อจริงนามสกุลตรงนี้ได้เลย]</div>
+                <div class="info-item"><span class="info-label">ชื่อเล่น:</span> [ใส่ชื่อเล่น]</div>
+                <div class="info-item"><span class="info-label">วันเกิด:</span> [ใส่วันเกิด เช่น 12 มกราคม]</div>
+                <div class="info-item"><span class="info-label">คติประจำใจ:</span> [ใส่คติประจำใจสุดจี๊ดของหนู]</div>
+                <div class="info-item"><span class="info-label">ความสนใจ:</span> เทคโนโลยี, เว็บไซต์, กราฟิกดีไซน์</div>
+            </div>
+
+            <!-- โซนทักษะความสามารถเพิ่มเติมเพิ่มความชิค -->
+            <div class="skills-box">
+                <div class="skills-title">⚡ MY SPECIAL SKILLS_</div>
+                <div class="skills-tags">
+                    <div class="skill-tag" style="background: #ffff00;">HTML / CSS</div>
+                    <div class="skill-tag" style="background: #ff79b0; color: white;">GRAPHIC DESIGN</div>
+                    <div class="skill-tag" style="background: #00e5ff;">PHOTOSHOOT</div>
+                    <div class="skill-tag" style="background: #ffffff;">Y2K STYLE</div>
+                </div>
             </div>
         </div>
+
+        <!-- แผงปุ่มบิดด้านข้างเครื่องโทรทัศน์ -->
+        <div class="tv-controls">
+            <div class="tv-knob"></div>
+            <div class="tv-knob"></div>
+            <div class="tv-speaker">
+                <div class="speaker-bar"></div>
+                <div class="speaker-bar"></div>
+                <div class="speaker-bar"></div>
+                <div class="speaker-bar"></div>
+            </div>
+        </div>
+
     </div>
 
 </body>
