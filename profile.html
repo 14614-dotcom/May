@@ -1,30 +1,125 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile | Portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Profile | Portfolio</title>
 
-    <link rel="stylesheet" href="css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;700&display=swap" rel="stylesheet">
 
-    <!-- Font Awesome -->
-    <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Kanit',sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#ffffff,#eef8ff,#d9eeff);
+}
+
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 8%;
+background:white;
+box-shadow:0 5px 15px rgba(0,0,0,.1);
+position:sticky;
+top:0;
+}
+
+.logo{
+font-size:28px;
+font-weight:bold;
+color:#2f80ed;
+}
+
+nav ul{
+display:flex;
+list-style:none;
+gap:18px;
+}
+
+nav a{
+text-decoration:none;
+color:#2f80ed;
+font-weight:bold;
+padding:10px 18px;
+border-radius:30px;
+transition:.3s;
+}
+
+nav a:hover{
+background:#5eb4ff;
+color:white;
+}
+
+.container{
+width:90%;
+max-width:1000px;
+margin:50px auto;
+}
+
+.card{
+background:white;
+border-radius:20px;
+padding:40px;
+box-shadow:0 10px 25px rgba(0,0,0,.1);
+}
+
+.profile{
+text-align:center;
+}
+
+.profile img{
+width:220px;
+height:220px;
+border-radius:50%;
+object-fit:cover;
+border:6px solid #fff;
+box-shadow:0 0 20px #7ec8ff;
+}
+
+.profile h1{
+margin-top:20px;
+color:#2f80ed;
+}
+
+table{
+width:100%;
+margin-top:30px;
+border-collapse:collapse;
+}
+
+td{
+padding:15px;
+border-bottom:1px solid #ddd;
+font-size:18px;
+}
+
+td:first-child{
+font-weight:bold;
+width:35%;
+color:#2f80ed;
+}
+
+footer{
+margin-top:50px;
+padding:20px;
+text-align:center;
+background:#dcefff;
+}
+</style>
+
 </head>
 
 <body>
 
-<!-- Bubble -->
-<div class="bubble" style="width:90px;height:90px;left:8%;animation-duration:18s;"></div>
-<div class="bubble" style="width:60px;height:60px;left:75%;animation-duration:15s;"></div>
-
-<!-- Navigation -->
-
 <nav>
 
-<div class="logo">
-Portfolio
-</div>
+<div class="logo">💙 Portfolio</div>
 
 <ul>
 
@@ -42,237 +137,71 @@ Portfolio
 
 </nav>
 
-<section>
-
-<h1 class="title">
-👤 My Profile
-</h1>
-
-<div class="profile-grid">
-
-<!-- รูป -->
+<div class="container">
 
 <div class="card">
 
-<img src="images/profile.jpg" alt="Profile">
+<div class="profile">
 
-<h2 style="margin-top:20px;color:#2F80ED;text-align:center;">
-อมรรัตน์
-</h2>
+<img src="images/me.jpg" alt="Profile">
 
-<p style="text-align:center;color:#666;">
-Student Portfolio
-</p>
+<h1>ประวัติส่วนตัว</h1>
 
 </div>
 
-<!-- ข้อมูล -->
+<table>
 
-<div class="card">
+<tr>
+<td>ชื่อ - นามสกุล</td>
+<td>อมรรัตน์ ศรีโม่ง</td>
+</tr>
 
-<h2 style="margin-bottom:30px;color:#2F80ED;">
-ข้อมูลส่วนตัว
-</h2>
+<tr>
+<td>ชื่อเล่น</td>
+<td>....................</td>
+</tr>
 
-<div class="info">
+<tr>
+<td>อายุ</td>
+<td>18 ปี</td>
+</tr>
 
-<div>
-<h3><i class="fa-solid fa-user"></i> ชื่อ - นามสกุล</h3>
-<p>อมรรัตน์ ศรีโม่ง</p>
-</div>
+<tr>
+<td>วันเดือนปีเกิด</td>
+<td>....................</td>
+</tr>
 
-<div>
-<h3><i class="fa-solid fa-face-smile"></i> ชื่อเล่น</h3>
-<p>.............</p>
-</div>
+<tr>
+<td>กำลังศึกษา</td>
+<td>มัธยมศึกษาปีที่ 6</td>
+</tr>
 
-<div>
-<h3><i class="fa-solid fa-calendar"></i> วันเดือนปีเกิด</h3>
-<p>.............</p>
-</div>
+<tr>
+<td>ความสามารถ</td>
+<td>Canva, Microsoft Office, HTML เบื้องต้น</td>
+</tr>
 
-<div>
-<h3><i class="fa-solid fa-cake-candles"></i> อายุ</h3>
-<p>18 ปี</p>
-</div>
+<tr>
+<td>งานอดิเรก</td>
+<td>ฟังเพลง อ่านหนังสือ ออกแบบกราฟิก</td>
+</tr>
 
-<div>
-<h3><i class="fa-solid fa-location-dot"></i> ที่อยู่</h3>
-<p>จังหวัด....................</p>
-</div>
+<tr>
+<td>คติประจำใจ</td>
+<td>ความพยายามไม่เคยทรยศคนที่ตั้งใจ</td>
+</tr>
 
-<div>
-<h3><i class="fa-solid fa-school"></i> กำลังศึกษา</h3>
-<p>ระดับมัธยมศึกษาปีที่ 6</p>
-</div>
-
-<div>
-<h3><i class="fa-solid fa-star"></i> ความสามารถ</h3>
-
-<p>
-
-• Microsoft Office
-
-<br>
-
-• Canva
-
-<br>
-
-• CapCut
-
-<br>
-
-• HTML เบื้องต้น
-
-</p>
-
-</div>
-
-<div>
-<h3><i class="fa-solid fa-heart"></i> งานอดิเรก</h3>
-
-<p>
-
-อ่านหนังสือ
-
-<br>
-
-ฟังเพลง
-
-<br>
-
-ออกแบบกราฟิก
-
-</p>
-
-</div>
-
-<div>
-
-<h3><i class="fa-solid fa-bullseye"></i> คติประจำใจ</h3>
-
-<p>
-
-"ความพยายามไม่เคยทรยศคนที่ตั้งใจ"
-
-</p>
-
-</div>
-
-<div>
-
-<h3><i class="fa-solid fa-language"></i> ภาษา</h3>
-
-<p>
-
-ไทย 🇹🇭
-
-<br>
-
-English (Basic)
-
-</p>
+</table>
 
 </div>
 
 </div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- จุดเด่น -->
-
-<section class="fade">
-
-<h2 class="title">
-
-🌟 My Skills
-
-</h2>
-
-<div class="gallery">
-
-<div class="card">
-
-<h2>💻 Technology</h2>
-
-<br>
-
-<p>
-
-HTML
-
-<br>
-
-CSS
-
-<br>
-
-JavaScript (กำลังศึกษา)
-
-</p>
-
-</div>
-
-<div class="card">
-
-<h2>🎨 Design</h2>
-
-<br>
-
-<p>
-
-Canva
-
-<br>
-
-Photoshop
-
-<br>
-
-PowerPoint
-
-</p>
-
-</div>
-
-<div class="card">
-
-<h2>📚 Learning</h2>
-
-<br>
-
-<p>
-
-ชอบเรียนรู้สิ่งใหม่
-
-<br>
-
-ทำงานเป็นทีม
-
-<br>
-
-รับผิดชอบ
-
-</p>
-
-</div>
-
-</div>
-
-</section>
 
 <footer>
 
-💙 Thank you for visiting my Portfolio 💙
+© 2026 Portfolio | อมรรัตน์
 
 </footer>
-
-<script src="js/script.js"></script>
 
 </body>
 </html>
