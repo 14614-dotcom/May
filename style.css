@@ -1,1 +1,98 @@
+/* style.css */
+:root {
+    --bg-color: #FFF5F5;      /* สีพื้นหลังแดงอ่อนพาสเทล */
+    --main-red: #D35252;      /* สีแดงหลักสไตล์จีนร่วมสมัย */
+    --dark-red: #8B2626;      /* สีแดงเข้มสำหรับตัวอักษรหัวข้อ */
+    --gold: #D4AF37;          /* สีทองมงคล */
+    --text-color: #4A3B3B;    /* สีตัวอักษรทั่วไป */
+}
 
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Sarabun', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* แถบเมนูนำทาง (Navigation Bar) */
+nav {
+    background-color: var(--main-red);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 3px double var(--gold);
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 15px 0;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover, nav ul li a.active {
+    color: var(--gold);
+}
+
+/* โครงสร้างเนื้อหา */
+.container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    min-height: 70vh;
+}
+
+section {
+    background: white;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(211, 82, 82, 0.1);
+    border: 2px solid #FADBD8;
+    position: relative;
+}
+
+section::before {
+    content: "🏮";
+    position: absolute;
+    top: -15px;
+    left: 20px;
+    font-size: 1.5rem;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 30px;
+    border-bottom: 2px dashed var(--main-red);
+    padding-bottom: 10px;
+    color: var(--dark-red);
+    font-family: 'Noto Serif TC', serif;
+}
+
+footer {
+    text-align: center;
+    padding: 25px;
+    background-color: var(--dark-red);
+    color: var(--gold);
+    font-size: 0.9rem;
+    border-top: 3px double var(--gold);
+    margin-top: 40px;
+}
