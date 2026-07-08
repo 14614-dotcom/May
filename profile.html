@@ -1,313 +1,49 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ประวัติส่วนตัว | Cyberpunk Chinese AI Portfolio</title>
-    <style>
-        /* ==========================================================================
-           1. DESIGN SYSTEM & BACKGROUND ANIMATION
-           ========================================================================== */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body {
-            background-color: #f4f7fc;
-            color: #1a2a3a;
-            min-height: 100vh;
-            overflow-x: hidden;
-            position: relative;
-        }
-
-        /* Ambient Background Animation (พื้นหลังขยับได้) */
-        .bg-animation {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background: radial-gradient(circle at 50% 50%, #ffffff 0%, #eef3fb 100%);
-            overflow: hidden;
-        }
-
-        .bg-animation::before, .bg-animation::after {
-            content: '';
-            position: absolute;
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(0, 85, 255, 0.08) 0%, rgba(0, 191, 255, 0) 70%);
-            animation: floatNodes 15s infinite alternate ease-in-out;
-        }
-        .bg-animation::after {
-            width: 450px;
-            height: 450px;
-            left: auto;
-            right: -50px;
-            top: 40%;
-            background: radial-gradient(circle, rgba(0, 191, 255, 0.06) 0%, rgba(0, 85, 255, 0) 70%);
-            animation-duration: 20s;
-        }
-
-        @keyframes floatNodes {
-            0% { transform: translateY(0) scale(1) rotate(0deg); }
-            100% { transform: translateY(-50px) scale(1.1) rotate(45deg); }
-        }
-
-        .cyber-grid {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background-image: 
-                linear-gradient(rgba(0, 85, 255, 0.02) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 85, 255, 0.02) 1px, transparent 1px);
-            background-size: 50px 50px;
-        }
-
-        /* ==========================================================================
-           2. NAVIGATION BAR (แถบเมนูหลัก)
-           ========================================================================== */
-        nav {
-            background: rgba(255, 255, 255, 0.75);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border-bottom: 2px solid rgba(0, 85, 255, 0.15);
-            padding: 15px 6%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .logo {
-            font-size: 22px;
-            font-weight: 800;
-            color: #0055ff;
-            letter-spacing: 1px;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-        .logo span { color: #00bfff; font-weight: 400; }
-        .logo::before { content: "☯"; font-size: 20px; color: #0055ff; animation: spin 8s linear infinite; }
-
-        nav ul { display: flex; list-style: none; gap: 10px; }
-        nav ul li a {
-            text-decoration: none;
-            color: #486581;
-            font-weight: 600;
-            font-size: 15px;
-            padding: 8px 18px;
-            border-radius: 8px;
-            transition: 0.3s;
-            border: 1px solid transparent;
-        }
-        nav ul li a:hover, nav ul li a.active {
-            color: #0055ff;
-            background: rgba(0, 85, 255, 0.06);
-            border: 1px solid rgba(0, 85, 255, 0.15);
-        }
-
-        /* ==========================================================================
-           3. PROFILE CONTENT SECTION
-           ========================================================================== */
-        .container {
-            max-width: 900px;
-            margin: 18vh auto 5vh;
-            padding: 0 20px;
-        }
-
-        .profile-card {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-radius: 24px;
-            padding: 50px;
-            border: 1px solid rgba(255, 255, 255, 0.6);
-            box-shadow: 0 20px 50px rgba(0, 85, 255, 0.05);
-            display: grid;
-            grid-template-columns: 250px 1fr;
-            gap: 40px;
-            align-items: center;
-            position: relative;
-        }
-
-        /* ดีเทลตัวอักษรจีนมุมการ์ด */
-        .profile-card::before {
-            content: "｢ 個人資料 ｣";
-            position: absolute;
-            top: 25px;
-            right: 30px;
-            font-size: 13px;
-            color: rgba(0, 85, 255, 0.3);
-            letter-spacing: 2px;
-        }
-
-        /* ส่วนแสดงอวตาร (ซ้าย) */
-        .profile-left {
-            display: flex;
-            justify-content: center;
-        }
-
-        .avatar-zone {
-            width: 180px;
-            height: 180px;
-            background: radial-gradient(circle, #ffffff 30%, #eef3fb 100%);
-            border-radius: 50%;
-            border: 4px solid #0055ff;
-            box-shadow: 0 10px 25px rgba(0, 85, 255, 0.15);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 60px;
-            position: relative;
-        }
-
-        /* วงแหวนประดับรอบรูป */
-        .avatar-zone::after {
-            content: '';
-            position: absolute;
-            top: -8px; left: -8px; right: -8px; bottom: -8px;
-            border: 2px dashed #00bfff;
-            border-radius: 50%;
-            animation: spin 20s linear infinite;
-        }
-
-        @keyframes spin { 100% { transform: rotate(360deg); } }
-
-        /* ส่วนแสดงข้อมูล (ขวา) */
-        .profile-right h2 {
-            font-size: 26px;
-            color: #0055ff;
-            margin-bottom: 25px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .profile-right h2::before {
-            content: "◆";
-            color: #00bfff;
-            font-size: 18px;
-        }
-
-        .info-list {
-            display: flex;
-            flex-direction: column;
-            gap: 18px;
-        }
-
-        .info-item {
-            font-size: 18px;
-            color: #1a2a3a;
-            border-bottom: 1px solid rgba(0, 85, 255, 0.08);
-            padding-bottom: 8px;
-            display: flex;
-        }
-
-        .info-label {
-            width: 150px;
-            color: #0055ff;
-            font-weight: 600;
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            display: flex;
-            align-items: center;
-        }
-
-        .info-value {
-            color: #486581;
-            font-weight: 500;
-        }
-
-        /* Responsive */
-        @media (max-width: 700px) {
-            .profile-card {
-                grid-template-columns: 1fr;
-                padding: 35px 25px;
-                text-align: center;
-            }
-            .info-item {
-                flex-direction: column;
-                gap: 5px;
-                align-items: center;
-            }
-            .info-label {
-                width: auto;
-                justify-content: center;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<title>ประวัติส่วนตัว</title>
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-    <!-- พื้นหลังอนิเมชั่น -->
-    <div class="bg-animation"></div>
-    <div class="cyber-grid"></div>
+<nav>
 
-    <!-- แถบเมนูหลัก -->
-    <nav>
-        <div class="logo">CYBER<span>华 (Huá)</span></div>
-        <ul>
-            <li><a href="index.html">หน้าหลัก</a></li>
-            <li><a href="about.html" class="active">ประวัติส่วนตัว</a></li>
-            <li><a href="education.html">ประวัติการศึกษา</a></li>
-            <li><a href="projects.html">ผลงาน</a></li>
-            <li><a href="contact.html">ช่องทางการติดต่อ</a></li>
-        </ul>
-    </nav>
+<div class="logo">Portfolio</div>
 
-    <!-- เนื้อหาข้อมูลส่วนตัว -->
-    <div class="container">
-        <div class="profile-card">
-            
-            <!-- ฝั่งรูปภาพอวตาร -->
-            <div class="profile-left">
-                <div class="avatar-zone">
-                    👤
-                </div>
-            </div>
+<ul>
 
-            <!-- ฝั่งรายละเอียดประวัติ -->
-            <div class="profile-right">
-                <h2>ข้อมูลประวัติส่วนตัว</h2>
-                
-                <div class="info-list">
-                    <div class="info-item">
-                        <span class="info-label">ชื่อ - นามสกุล</span>
-                        <span class="info-value">นางสาว อมรรัตน์ ศรีโม่ง</span>
-                    </div>
-                    
-                    <div class="info-item">
-                        <span class="info-label">ชื่อเล่น</span>
-                        <span class="info-value">เมย์</span>
-                    </div>
+<li><a href="index.html">หน้าหลัก</a></li>
 
-                    <div class="info-item">
-                        <span class="info-label">อายุ</span>
-                        <span class="info-value">18 ปี</span>
-                    </div>
+<li><a href="about.html">ประวัติส่วนตัว</a></li>
 
-                    <div class="info-item">
-                        <span class="info-label">วันเดือนปีเกิด</span>
-                        <span class="info-value"> 29 มกราคม พ.ศ.2551</span>
-                    </div>
-                </div>
-            </div>
+<li><a href="education.html">ประวัติการศึกษา</a></li>
 
-        </div>
-    </div>
+<li><a href="portfolio.html">ผลงาน</a></li>
+
+<li><a href="contact.html">ติดต่อ</a></li>
+
+</ul>
+
+</nav>
+
+<div class="container">
+
+<h1>ประวัติส่วนตัว</h1>
+
+<img src="images/profile.jpg" class="profile">
+
+<p>ชื่อ : นางสาวอมรรัตน์ ศรีโม่ง</p>
+
+<p>อายุ 18 ปี:</p>
+
+<p>วันเกิด :29 มกราคม 2551</p>
+
+
+<p>ความสามารถ :ร้องเพลง</p>
+
+</div>
 
 </body>
 </html>
