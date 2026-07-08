@@ -1,256 +1,56 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Amonrat Portfolio</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: #f0f7ff; color: #333; display: flex; flex-direction: column; min-height: 100vh; }
+        
+        /* Navigation Menu - สไตล์ Hi5/Y2K Cute */
+        nav { background: linear-gradient(135deg, #a0c4ff, #cbf3f0); padding: 15px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        nav a { text-decoration: none; color: #fff; font-weight: bold; padding: 10px 20px; margin: 0 5px; border-radius: 20px; background-color: rgba(255,255,255,0.3); transition: 0.3s; text-shadow: 1px 1px 2px rgba(0,0,0,0.2); }
+        nav a:hover, nav a.active { background-color: #fff; color: #4a90e2; box-shadow: 0 0 10px rgba(255,255,255,0.8); }
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Portfolio | อมรรัตน์ ศรีโม่ง</title>
-
-<link rel="stylesheet" href="style.css">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;700&display=swap" rel="stylesheet">
-
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-
+        /* Main Content */
+        .container { max-width: 800px; margin: 40px auto; padding: 20px; background: #ffffff; border-radius: 30px; box-shadow: 0 10px 30px rgba(160, 196, 255, 0.3); text-align: center; border: 4px solid #eef4ff; }
+        h1 { color: #4a90e2; font-size: 2.5rem; margin-bottom: 20px; text-shadow: 2px 2px #e1edff; font-weight: 800; }
+        
+        /* Profile Image Frame Y2K Style */
+        .profile-img-container { width: 220px; height: 220px; margin: 0 auto 20px; border-radius: 50%; padding: 10px; background: linear-gradient(45deg, #bdb2ff, #9bf6ff); box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
+        .profile-img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; border: 5px solid #fff; }
+        
+        p { color: #666; font-size: 1.2rem; line-height: 1.6; margin-bottom: 20px; }
+        .welcome-text { font-size: 1.4rem; color: #5a73a3; font-style: italic; }
+        
+        /* ตกแต่งวิบวับเพิ่มเติม */
+        .sparkle { color: #ffc6ff; font-size: 1.5rem; }
+    </style>
 </head>
-
 <body>
 
-<!-- Bubble -->
-
-<div class="bubbles">
-
-<span></span>
-<span></span>
-<span></span>
-<span></span>
-<span></span>
-<span></span>
-<span></span>
-
-</div>
-
-<!-- ดาว -->
-
-<div class="stars">
-
-<div></div>
-<div></div>
-<div></div>
-<div></div>
-<div></div>
-
-</div>
-
-<!-- เมนู -->
-
-<header>
-
-<div class="logo">
-
-<i class="fa-solid fa-heart"></i>
-
-Portfolio
-
-</div>
-
-<nav>
-
-<a href="index.html">หน้าหลัก</a>
-
-<a href="about.html">ประวัติส่วนตัว</a>
-
-<a href="education.html">ประวัติการศึกษา</a>
-
-<a href="portfolio.html">ผลงาน</a>
-
-<a href="contact.html">ติดต่อ</a>
-
-</nav>
-
-</header>
-
-<!-- หน้าแรก -->
-
-<section class="hero">
-
-<div class="left">
-
-<h3>WELCOME TO</h3>
-
-<h1>
-
-Portfolio
-
-ของ
-
-<span>อมรรัตน์ ศรีโม่ง</span>
-
-</h1>
-
-<p>
-
-ยินดีต้อนรับเข้าสู่เว็บไซต์ Portfolio
-
-เว็บไซต์นี้จัดทำขึ้นเพื่อรวบรวมประวัติส่วนตัว
-
-ประวัติการศึกษา ผลงาน และช่องทางการติดต่อ
-
-</p>
-
-<a href="about.html" class="btn">
-
-เริ่มต้น
-
-<i class="fa-solid fa-arrow-right"></i>
-
-</a>
-
-</div>
-
-<div class="right">
-
-<img src="images/profile.png">
-
-</div>
-
-</section>
-
-<!-- กล่องข้อมูล -->
-
-<section class="cards">
-
-<div class="card">
-
-<i class="fa-solid fa-user"></i>
-
-<h2>ประวัติส่วนตัว</h2>
-
-<p>
-
-ข้อมูลส่วนตัว
-
-วันเกิด
-
-อายุ
-
-ความสามารถ
-
-</p>
-
-<a href="about.html">
-
-ดูเพิ่มเติม
-
-</a>
-
-</div>
-
-<div class="card">
-
-<i class="fa-solid fa-school"></i>
-
-<h2>ประวัติการศึกษา</h2>
-
-<p>
-
-โรงเรียนเดิม
-
-มัธยมต้น
-
-มัธยมปลาย
-
-</p>
-
-<a href="education.html">
-
-ดูเพิ่มเติม
-
-</a>
-
-</div>
-
-<div class="card">
-
-<i class="fa-solid fa-award"></i>
-
-<h2>ผลงาน</h2>
-
-<p>
-
-เกียรติบัตร
-
-กิจกรรม
-
-การแข่งขัน
-
-</p>
-
-<a href="portfolio.html">
-
-ดูเพิ่มเติม
-
-</a>
-
-</div>
-
-<div class="card">
-
-<i class="fa-solid fa-phone"></i>
-
-<h2>ติดต่อ</h2>
-
-<p>
-
-Facebook
-
-Instagram
-
-LINE
-
-Email
-
-</p>
-
-<a href="contact.html">
-
-ดูเพิ่มเติม
-
-</a>
-
-</div>
-
-</section>
-
-<!-- การ์ตูน -->
-
-<img src="images/anime.png" class="anime">
-
-<!-- Footer -->
-
-<footer>
-
-<h2>
-
-Thank You For Visiting
-
-💙
-
-</h2>
-
-<p>
-
-© 2026 Portfolio | Amornrat
-
-</p>
-
-</footer>
-
-<script src="script.js"></script>
+    <nav>
+        <a href="index.html" class="active">หน้าแรก</a>
+        <a href="profile.html">ประวัติส่วนตัว</a>
+        <a href="education.html">ประวัติการศึกษา</a>
+        <a href="portfolio.html">ผลงาน</a>
+        <a href="contact.html">ช่องทางการติดต่อ</a>
+    </nav>
+
+    <div class="container">
+        <span class="sparkle">✧*̥˚ * *̥˚✧</span>
+        <h1>ยินดีต้อนรับสู่ Portfolio ของ อมรรัตน์</h1>
+        <span class="sparkle">✧*̥˚ * *̥˚✧</span>
+        
+        <div class="profile-img-container">
+            <!-- เปลี่ยนชื่อรูปภาพตรง src เป็นรูปของน้องได้เลย เช่น me.jpg -->
+            <img src="me.jpg" alt="รูปภาพของอมรรัตน์" class="profile-img" onerror="this.src='https://via.placeholder.com/200/a0c4ff/ffffff?text=My+Photo'">
+        </div>
+        
+        <p class="welcome-text">" ยินดีต้อนรับทุกคนเข้าสู่พื้นที่รวบรวมเรื่องราว ความทรงจำ และผลงานของฉันค่ะ! "</p>
+        <p>เว็บไซต์นี้สร้างขึ้นเพื่อแนะนำตัวตน ประวัติการศึกษา และผลงานต่างๆ ในช่วงชีวิตมัธยมปลาย หวังว่าทุกคนจะชอบนะคะ 💙</p>
+    </div>
 
 </body>
-
 </html>
