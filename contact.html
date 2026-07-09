@@ -1,163 +1,356 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact | Portfolio</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;700&display=swap" rel="stylesheet">
+<title>Contact | Portfolio</title>
 
 <style>
 
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Kanit',sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Tahoma,sans-serif;
 }
 
 body{
-background:linear-gradient(135deg,#ffffff,#eef8ff,#d9eeff);
+
+    background:#dff2ff;
+
+    background-image:
+    linear-gradient(white 1px, transparent 1px),
+    linear-gradient(90deg, white 1px, transparent 1px);
+
+    background-size:50px 50px;
+
 }
 
-nav{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:18px 8%;
-background:white;
-box-shadow:0 5px 15px rgba(0,0,0,.1);
-position:sticky;
-top:0;
+
+/* เมนู */
+
+.menu{
+
+    width:100%;
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:30px;
+
+    margin-top:40px;
+
+    margin-bottom:30px;
+
 }
 
-.logo{
-font-size:28px;
-font-weight:bold;
-color:#2f80ed;
+
+.menu a{
+
+    text-decoration:none;
+
+    color:#2d6dff;
+
+    background:white;
+
+    padding:15px 28px;
+
+    border:2px solid #7ebcff;
+
+    box-shadow:5px 5px #bfe4ff;
+
+    font-weight:bold;
+
 }
 
-nav ul{
-display:flex;
-list-style:none;
-gap:18px;
+
+/* หน้าต่างหลัก */
+
+.window{
+
+    width:900px;
+
+    margin:auto;
+
+    background:white;
+
+    border:3px solid black;
+
+    box-shadow:10px 10px #9fdcff;
+
 }
 
-nav a{
-text-decoration:none;
-color:#2f80ed;
-font-weight:bold;
-padding:10px 18px;
-border-radius:30px;
-transition:.3s;
-}
 
-nav a:hover{
-background:#5eb4ff;
-color:white;
-}
-
-.container{
-width:90%;
-max-width:900px;
-margin:50px auto;
-}
 
 .title{
-text-align:center;
-color:#2f80ed;
-font-size:40px;
-margin-bottom:40px;
+
+    height:48px;
+
+    background:linear-gradient(to right,#2d73ff,#89c8ff);
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:0 15px;
+
+    color:white;
+
+    font-size:22px;
+
+    font-weight:bold;
+
 }
 
-.card{
-background:white;
-padding:25px;
-border-radius:20px;
-box-shadow:0 10px 20px rgba(0,0,0,.1);
-margin-bottom:20px;
-transition:.3s;
+
+.btns{
+
+    display:flex;
+
+    gap:8px;
+
 }
 
-.card:hover{
-transform:translateY(-5px);
+
+.btns div{
+
+    width:24px;
+
+    height:24px;
+
+    background:white;
+
+    border:2px solid #7bb8ff;
+
+    color:#2d6dff;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
 }
 
-.card h2{
-color:#2f80ed;
-margin-bottom:10px;
+
+
+/* เนื้อหา */
+
+.content{
+
+    padding:50px;
+
+    text-align:center;
+
 }
 
-.card p{
-font-size:18px;
-color:#555;
+
+h1{
+
+    color:#346cff;
+
+    font-size:58px;
+
+    margin-bottom:20px;
+
 }
 
-footer{
-margin-top:50px;
-padding:20px;
-text-align:center;
-background:#dcefff;
+
+.subtitle{
+
+    color:#555;
+
+    font-size:22px;
+
+    margin-bottom:40px;
+
 }
+
+
+
+/* กล่อง Contact */
+
+.contact-box{
+
+    width:650px;
+
+    margin:auto;
+
+    background:#ffffff;
+
+    border:3px solid black;
+
+    box-shadow:8px 8px #9fdcff;
+
+    padding:35px;
+
+    text-align:left;
+
+}
+
+
+
+.contact-box h2{
+
+    color:#346cff;
+
+    font-size:28px;
+
+    margin-bottom:25px;
+
+}
+
+
+
+.contact-item{
+
+    font-size:20px;
+
+    color:#555;
+
+    line-height:45px;
+
+    border-bottom:1px solid #c7e6ff;
+
+}
+
+
 
 </style>
 
 </head>
 
+
+
 <body>
 
-<nav>
 
-<div class="logo">💙 Portfolio</div>
+<div class="menu">
 
-<ul>
+<a href="index.html">Home</a>
 
-<li><a href="index.html">Home</a></li>
-<li><a href="profile.html">Profile</a></li>
-<li><a href="education.html">Education</a></li>
-<li><a href="award.html">Award</a></li>
-<li><a href="contact.html">Contact</a></li>
+<a href="profile.html">Profile</a>
 
-</ul>
+<a href="education.html">Education</a>
 
-</nav>
+<a href="award.html">Award</a>
 
-<div class="container">
+<a href="contact.html">Contact</a>
 
-<h1 class="title">📞 ช่องทางการติดต่อ</h1>
-
-<div class="card">
-<h2>📧 Email</h2>
-<p>example@gmail.com</p>
 </div>
 
-<div class="card">
-<h2>📱 โทรศัพท์</h2>
-<p>08X-XXX-XXXX</p>
-</div>
 
-<div class="card">
-<h2>📘 Facebook</h2>
-<p>Amornrat Srimong</p>
-</div>
 
-<div class="card">
-<h2>📷 Instagram</h2>
-<p>@amornrat</p>
-</div>
 
-<div class="card">
-<h2>💬 LINE</h2>
-<p>@yourline</p>
+<div class="window">
+
+
+<div class="title">
+
+Portfolio.exe
+
+
+<div class="btns">
+
+<div>─</div>
+
+<div>□</div>
+
+<div>✕</div>
+
 </div>
 
 </div>
 
-<footer>
 
-💙 ขอบคุณที่เข้ามาเยี่ยมชม Portfolio ของฉัน 💙
 
-</footer>
+
+<div class="content">
+
+
+<h1>
+CONTACT
+</h1>
+
+
+<p class="subtitle">
+ช่องทางการติดต่อ
+</p>
+
+
+
+
+<div class="contact-box">
+
+
+<h2>
+Contact Information
+</h2>
+
+
+<div class="contact-item">
+
+โทรศัพท์ : 08X-XXX-XXXX
+
+</div>
+
+
+<div class="contact-item">
+
+Email : example@email.com
+
+</div>
+
+
+<div class="contact-item">
+
+Facebook : Facebook Name
+
+</div>
+
+
+<div class="contact-item">
+
+Instagram : Instagram Name
+
+</div>
+
+
+<div class="contact-item">
+
+Line : Line ID
+
+</div>
+
+
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+
+<div style="
+text-align:center;
+margin:40px;
+color:#4b6f9e;
+font-size:15px;
+">
+
+© 2026 Portfolio
+
+</div>
+
+
 
 </body>
 </html>
