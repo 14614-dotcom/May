@@ -3,181 +3,211 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Profile | Portfolio</title>
 
 <style>
 
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Segoe UI',sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Tahoma,sans-serif;
 }
 
 body{
-    background:#dff3ff;
-    background-image:
-    linear-gradient(rgba(255,255,255,.8) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(255,255,255,.8) 1px,transparent 1px);
-    background-size:40px 40px;
+
+background:#dff2ff;
+
+background-image:
+linear-gradient(white 1px,transparent 1px),
+linear-gradient(90deg,white 1px,transparent 1px);
+
+background-size:50px 50px;
+
 }
 
 /* เมนู */
 
-nav{
-    display:flex;
-    justify-content:center;
-    gap:25px;
-    padding:25px 0;
+.menu{
+
+display:flex;
+
+justify-content:center;
+
+gap:35px;
+
+margin-top:40px;
+
+margin-bottom:35px;
+
 }
 
-nav a{
-    text-decoration:none;
-    color:#3d6eff;
-    font-weight:bold;
-    background:white;
-    padding:12px 22px;
-    border-radius:30px;
-    border:2px solid #9fd7ff;
-    transition:.3s;
+.menu a{
+
+text-decoration:none;
+
+color:#2d6dff;
+
+font-weight:bold;
+
+font-size:18px;
+
+padding:16px 32px;
+
+background:white;
+
+border:2px solid #7ebcff;
+
+box-shadow:5px 5px #bfe4ff;
+
+transition:.2s;
+
 }
 
-nav a:hover{
-    background:#9fd7ff;
-    color:white;
-}
+.menu a:hover{
 
-/* หัวข้อ */
+transform:translate(3px,3px);
 
-h1{
-    text-align:center;
-    color:#3d6eff;
-    font-size:48px;
-    margin-top:10px;
+box-shadow:none;
+
 }
 
 /* การ์ด */
 
 .card{
 
-    width:850px;
-    max-width:90%;
+width:950px;
 
-    margin:40px auto;
+margin:auto;
 
-    background:white;
+background:white;
 
-    border-radius:30px;
+border:3px solid #7ebcff;
 
-    padding:40px;
+box-shadow:10px 10px #bfe4ff;
 
-    border:3px solid #9fd7ff;
-
-    box-shadow:0 15px 30px rgba(0,0,0,.12);
+padding:50px;
 
 }
-.card{
 
-    width:850px;
-    max-width:90%;
+/* หัวข้อ */
 
-    margin:40px auto;
+h1{
 
-    background:white;
+text-align:center;
 
-    border-radius:30px;
+font-size:55px;
 
-    padding:40px;
+color:#3d6eff;
 
-    border:3px solid #9fd7ff;
+margin-bottom:15px;
 
-    box-shadow:0 15px 30px rgba(0,0,0,.12);
+}
 
-} 
+.subtitle{
+
+text-align:center;
+
+font-size:22px;
+
+color:#76afff;
+
+margin-bottom:40px;
+
+}
 .profile{
-    display:flex;
-    align-items:center;
-    gap:40px;
-    flex-wrap:wrap;
-    justify-content:center;
+
+display:flex;
+
+justify-content:center;
+
+align-items:flex-start;
+
+gap:60px;
+
+flex-wrap:wrap;
+
 }
 
 .photo{
 
-    width:240px;
-    background:#ffffff;
-    padding:12px;
-    border-radius:25px;
-    border:3px solid #8fcfff;
-    box-shadow:8px 8px 0 #ccecff;
+width:260px;
+
+background:#ffffff;
+
+padding:12px;
+
+border:3px solid #7ebcff;
+
+box-shadow:8px 8px #bfe4ff;
 
 }
 
 .photo img{
 
-    width:100%;
-    border-radius:18px;
-    display:block;
+width:100%;
+
+display:block;
 
 }
 
 .info{
-    flex:1;
-    min-width:280px;
-}
 
-.info h2{
+flex:1;
 
-    color:#3d6eff;
-    margin-bottom:20px;
-    font-size:32px;
+min-width:320px;
 
 }
 
-.info p{
+.info table{
 
-    font-size:19px;
-    line-height:45px;
-    color:#444;
+width:100%;
 
-}
+border-collapse:collapse;
 
-.star1{
-
-position:fixed;
-top:100px;
-left:70px;
-font-size:40px;
-color:white;
+font-size:20px;
 
 }
 
-.star2{
+.info td{
 
-position:fixed;
-right:90px;
-top:180px;
-font-size:30px;
-color:white;
+padding:18px 10px;
+
+border-bottom:2px solid #e5f4ff;
 
 }
 
-.star3{
+.info td:first-child{
 
-position:fixed;
-bottom:120px;
-left:120px;
-font-size:35px;
-color:white;
+width:220px;
+
+font-weight:bold;
+
+color:#3d6eff;
+
+}
+
+.title{
+
+font-size:34px;
+
+font-weight:bold;
+
+color:#3d6eff;
+
+margin-bottom:25px;
 
 }
 
 footer{
 
 text-align:center;
-padding:30px;
-color:#4b6d92;
+
+padding:35px;
+
+color:#5d8ed8;
+
+font-size:16px;
 
 }
 
@@ -187,11 +217,7 @@ color:#4b6d92;
 
 <body>
 
-<div class="star1">✦</div>
-<div class="star2">✦</div>
-<div class="star3">✦</div>
-
-<nav>
+<div class="menu">
 
 <a href="index.html">Home</a>
 
@@ -203,11 +229,13 @@ color:#4b6d92;
 
 <a href="contact.html">Contact</a>
 
-</nav>
+</div>
+
+<div class="card">
 
 <h1>PROFILE</h1>
 
-<div class="card">
+<p class="subtitle">ประวัติส่วนตัว</p>
 
 <div class="profile">
 
@@ -219,23 +247,50 @@ color:#4b6d92;
 
 <div class="info">
 
-<h2>About Me</h2>
+<div class="title">About Me</div>
 
-<p><strong>ชื่อ-นามสกุล :</strong> อมรรัตน์ ศรีโม่ง</p>
+<table>
 
-<p><strong>ชื่อเล่น :</strong> ...............</p>
+<tr>
 
-<p><strong>อายุ :</strong> ...............</p>
+<td>ชื่อ - นามสกุล</td>
 
-<p><strong>วันเดือนปีเกิด :</strong> ...............</p>
+<td>อมรรัตน์ ศรีโม่ง</td>
 
-<p><strong>ความสามารถ :</strong> ...............</p>
+</tr>
 
-<p><strong>งานอดิเรก :</strong> ...............</p>
+<tr>
 
-</div>
+<td>ชื่อเล่น</td>
 
-</div>
+<td>....................</td>
+
+</tr>
+
+<tr>
+
+<td>อายุ</td>
+
+<td>18 ปี</td>
+
+</tr>
+
+<tr>
+
+<td>วันเดือนปีเกิด</td>
+
+<td>....................</td>
+
+</tr>
+
+<tr>
+
+<td>ความสามารถ</td>
+
+<td>....................</td>
+
+</tr>
+
 
 </div>
 
