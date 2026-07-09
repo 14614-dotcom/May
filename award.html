@@ -1,192 +1,470 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Award | Portfolio</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;700&display=swap" rel="stylesheet">
 
 <style>
 
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Kanit',sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Tahoma,sans-serif;
 }
+
 
 body{
-background:linear-gradient(135deg,#ffffff,#eef8ff,#d9eeff);
+
+    background:#dff2ff;
+
+    background-image:
+    linear-gradient(white 1px, transparent 1px),
+    linear-gradient(90deg, white 1px, transparent 1px);
+
+    background-size:50px 50px;
+
 }
 
-nav{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:18px 8%;
-background:white;
-box-shadow:0 5px 15px rgba(0,0,0,.1);
-position:sticky;
-top:0;
+
+
+/* เมนู */
+
+.menu{
+
+    width:100%;
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:30px;
+
+    margin-top:40px;
+
+    margin-bottom:30px;
+
 }
 
-.logo{
-font-size:28px;
-font-weight:bold;
-color:#2f80ed;
+
+.menu a{
+
+    text-decoration:none;
+
+    color:#2d6dff;
+
+    background:white;
+
+    padding:15px 28px;
+
+    border:2px solid #7ebcff;
+
+    box-shadow:5px 5px #bfe4ff;
+
+    font-weight:bold;
+
 }
 
-nav ul{
-display:flex;
-list-style:none;
-gap:18px;
+
+.menu a:hover{
+
+    transform:translate(3px,3px);
+
+    box-shadow:none;
+
 }
 
-nav a{
-text-decoration:none;
-color:#2f80ed;
-font-weight:bold;
-padding:10px 18px;
-border-radius:30px;
-transition:.3s;
+
+
+/* หน้าต่าง */
+
+.window{
+
+    width:900px;
+
+    margin:auto;
+
+    background:white;
+
+    border:3px solid black;
+
+    box-shadow:10px 10px #9fdcff;
+
 }
 
-nav a:hover{
-background:#5eb4ff;
-color:white;
-}
 
-.container{
-width:90%;
-max-width:1100px;
-margin:50px auto;
-}
+
+/* หัวข้อบน */
 
 .title{
-text-align:center;
-color:#2f80ed;
-margin-bottom:40px;
-font-size:40px;
+
+    height:48px;
+
+    background:linear-gradient(to right,#2d73ff,#89c8ff);
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:0 15px;
+
+    color:white;
+
+    font-weight:bold;
+
+    font-size:22px;
+
 }
 
-.gallery{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:25px;
+
+.btns{
+
+    display:flex;
+
+    gap:8px;
+
 }
+
+
+.btns div{
+
+    width:24px;
+
+    height:24px;
+
+    background:white;
+
+    border:2px solid #7bb8ff;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:#2d73ff;
+
+    font-weight:bold;
+
+}
+
+
+
+/* เนื้อหา */
+
+.content{
+
+    text-align:center;
+
+    padding:50px;
+
+}
+
+
+h1{
+
+    color:#346cff;
+
+    font-size:55px;
+
+    margin-bottom:15px;
+
+}
+
+
+.subtitle{
+
+    color:#555;
+
+    font-size:22px;
+
+    margin-bottom:40px;
+
+}
+
+
+
+/* Award Card */
+
+.award-box{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:25px;
+
+    flex-wrap:wrap;
+
+}
+
+
 
 .card{
-background:white;
-padding:20px;
-border-radius:20px;
-box-shadow:0 10px 20px rgba(0,0,0,.1);
-text-align:center;
-transition:.3s;
+
+    width:240px;
+
+    border:3px solid black;
+
+    background:white;
+
+    box-shadow:8px 8px #9fdcff;
+
+    padding-bottom:20px;
+
 }
 
-.card:hover{
-transform:translateY(-8px);
+
+
+.card-header{
+
+    background:linear-gradient(to right,#2d73ff,#89c8ff);
+
+    color:white;
+
+    padding:10px;
+
+    font-weight:bold;
+
 }
+
+
 
 .card img{
-width:100%;
-height:220px;
-object-fit:cover;
-border-radius:15px;
-margin-bottom:15px;
+
+    width:90%;
+
+    height:130px;
+
+    object-fit:cover;
+
+    margin:15px;
+
+    border:2px solid #8cc8ff;
+
 }
 
-.card h3{
-color:#2f80ed;
-margin-bottom:10px;
+
+
+.card h2{
+
+    color:#346cff;
+
+    font-size:22px;
+
 }
+
 
 .card p{
-color:#555;
-line-height:1.7;
+
+    color:#555;
+
+    padding:10px;
+
+    line-height:25px;
+
 }
 
-footer{
-margin-top:50px;
-padding:20px;
-text-align:center;
-background:#dcefff;
+
+
+/* ดาวตกแต่ง */
+
+.star{
+
+position:fixed;
+
+color:white;
+
+font-size:35px;
+
 }
+
+
 
 </style>
 
+
 </head>
+
 
 <body>
 
-<nav>
 
-<div class="logo">💙 Portfolio</div>
 
-<ul>
+<div class="menu">
 
-<li><a href="index.html">Home</a></li>
-<li><a href="profile.html">Profile</a></li>
-<li><a href="education.html">Education</a></li>
-<li><a href="award.html">Award</a></li>
-<li><a href="contact.html">Contact</a></li>
+<a href="index.html">Home</a>
 
-</ul>
+<a href="profile.html">Profile</a>
 
-</nav>
+<a href="education.html">Education</a>
 
-<div class="container">
+<a href="award.html">Award</a>
 
-<h1 class="title">🏆 ผลงานและเกียรติบัตร</h1>
+<a href="contact.html">Contact</a>
 
-<div class="gallery">
+</div>
+
+
+
+
+<div class="window">
+
+
+<div class="title">
+
+Portfolio.exe
+
+<div class="btns">
+
+<div>─</div>
+
+<div>□</div>
+
+<div>✕</div>
+
+</div>
+
+</div>
+
+
+
+
+<div class="content">
+
+
+<h1>
+AWARD
+</h1>
+
+
+<p class="subtitle">
+เกียรติบัตรและผลงานแห่งความภาคภูมิใจ
+</p>
+
+
+
+<div class="award-box">
+
+
 
 <div class="card">
 
-<img src="images/award1.jpg" alt="Award">
+<div class="card-header">
+Award 01
+</div>
 
-<h3>ผลงานที่ 1</h3>
+<img src="images/award1.jpg">
+
+<h2>
+รางวัลการแข่งขัน
+</h2>
 
 <p>
-ใส่รายละเอียดของผลงานหรือเกียรติบัตรตรงนี้
+รายละเอียดของรางวัล
+และการแข่งขันที่ได้รับ
 </p>
 
 </div>
 
+
+
+
 <div class="card">
 
-<img src="images/award2.jpg" alt="Award">
+<div class="card-header">
+Award 02
+</div>
 
-<h3>ผลงานที่ 2</h3>
+<img src="images/award2.jpg">
+
+<h2>
+เกียรติบัตร
+</h2>
 
 <p>
-ใส่รายละเอียดของผลงานหรือกิจกรรมตรงนี้
+กิจกรรม อบรม
+หรือโครงการต่าง ๆ
 </p>
 
 </div>
 
+
+
+
+
 <div class="card">
 
-<img src="images/award3.jpg" alt="Award">
+<div class="card-header">
+Award 03
+</div>
 
-<h3>ผลงานที่ 3</h3>
+<img src="images/award3.jpg">
+
+<h2>
+ผลงานเด่น
+</h2>
 
 <p>
-ใส่รายละเอียดของการแข่งขันหรือกิจกรรมตรงนี้
+ผลงานที่สร้าง
+ความภาคภูมิใจ
 </p>
 
 </div>
 
-</div>
+
 
 </div>
 
-<footer>
 
-© 2026 Portfolio | อมรรัตน์
+</div>
 
-</footer>
+
+</div>
+
+
+
+
+<div class="star" style="top:120px;left:80px;">
+✦
+</div>
+
+
+<div class="star" style="top:220px;right:100px;">
+✦
+</div>
+
+
+<div class="star" style="bottom:120px;left:150px;">
+✦
+</div>
+
+
+<div class="star" style="bottom:180px;right:120px;">
+✦
+</div>
+
+
+
+
+<div style="
+text-align:center;
+margin:40px;
+color:#4b6f9e;
+font-size:15px;
+">
+
+© 2026 Portfolio | Amornrat
+
+</div>
+
+
 
 </body>
 </html>
