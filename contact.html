@@ -204,7 +204,7 @@
   .page-head p{ color:var(--text-muted); max-width:520px; margin:0 auto; line-height:1.8; }
 
   .contact-grid{
-    max-width:1000px; margin:0 auto; padding:50px 8% 120px;
+    max-width:1000px; margin:0 auto; padding:50px 8% 60px;
     display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:24px;
   }
   .c-card{
@@ -221,6 +221,46 @@
   .c-icon svg{ width:26px; height:26px; }
   .c-card .label{ font-size:0.8rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:1px; margin-bottom:8px; }
   .c-card .value{ font-size:1.05rem; font-weight:600; word-break:break-word; }
+
+  /* ===== NEXT/BACK PAGE BUTTONS ===== */
+  .next-page-container {
+    display:flex; align-items:center; justify-content:center; gap:18px; flex-wrap:wrap;
+    max-width:1000px; margin: 0 auto 80px auto; padding:0 8%; text-align:center;
+  }
+  .btn-next, .btn-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 34px;
+    border-radius: 40px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease, color 0.3s ease;
+  }
+  .btn-next svg, .btn-back svg{ width:18px; height:18px; flex-shrink:0; }
+  .btn-next {
+    background: linear-gradient(135deg, var(--blue-mid), var(--blue-deep));
+    color: #fff;
+    box-shadow: 0 10px 20px rgba(47, 111, 237, 0.2);
+  }
+  .btn-next:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(47, 111, 237, 0.3);
+  }
+  .btn-back {
+    background: #ffffff;
+    color: var(--blue-deep);
+    border: 2px solid var(--blue-light);
+    box-shadow: 0 6px 16px rgba(47, 111, 237, 0.08);
+  }
+  .btn-back:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(47, 111, 237, 0.18);
+    background: linear-gradient(135deg, var(--blue-light), var(--pink-soft));
+    color: var(--text-dark);
+    border-color: transparent;
+  }
 
   .footer{ text-align:center; padding:30px 5%; color:var(--text-muted); font-size:0.85rem; border-top:1px solid rgba(47,111,237,0.1); }
 </style>
@@ -375,12 +415,19 @@
     </a>
 
   </div>
- <!-- ปุ่มหน้าถัดไป -->
+
+  <!-- ปุ่มย้อนกลับ / กลับสู่หน้าหลัก -->
   <div class="next-page-container">
+    <a href="award.html" class="btn-back">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+      ย้อนกลับหน้าผลงาน
+    </a>
     <a href="index.html" class="btn-next">
-      กลับสู่หน้าหลัก<span>&rarr;</span>
+      กลับสู่หน้าหลัก
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
     </a>
   </div>
+
   <footer class="footer">
     © 2026 Amornrat Portfolio · สร้างด้วยความตั้งใจ 💙
   </footer>
