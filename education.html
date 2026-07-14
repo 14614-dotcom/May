@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ประวัติการศึกษา | Amonrat Portfolio</title>
+<title>ประวัติการศึกษา | Amornrat Portfolio</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&family=Sarabun:wght@300;400;500;600&display=swap');
   * { margin:0; padding:0; box-sizing:border-box; }
@@ -48,17 +48,29 @@
 
   /* ===== ROBOT MASCOT ===== */
   .robot-wrap{
-    position:fixed; right:4%; bottom:5%; width:130px; z-index:-1;
-    opacity:.95; animation:robotFloat 6s ease-in-out infinite;
+    position:fixed; right:4%; bottom:5%; width:220px; z-index:-1;
+    opacity:1; animation:robotFloat 6s ease-in-out infinite;
   }
-  @media (max-width:820px){ .robot-wrap{ width:88px; right:3%; bottom:2%; } }
-  @keyframes robotFloat{ 0%,100%{ transform:translateY(0);} 50%{ transform:translateY(-14px);} }
+  @media (max-width:820px){ .robot-wrap{ width:150px; right:3%; bottom:2%; } }
+  @keyframes robotFloat{ 0%,100%{ transform:translateY(0);} 50%{ transform:translateY(-16px);} }
+  .robot{ position:relative; filter:drop-shadow(0 12px 20px rgba(47,111,237,0.28)); }
+  .robot-ring{
+    position:absolute; left:50%; top:40%; width:240px; height:240px;
+    transform:translate(-50%,-50%); border-radius:50%;
+    background:conic-gradient(from 0deg, var(--blue-light), var(--pink-soft), var(--lavender), var(--blue-mid), var(--blue-light));
+    filter:blur(14px); opacity:.45; animation:ringSpin 14s linear infinite;
+  }
+  @keyframes ringSpin{ to{ transform:translate(-50%,-50%) rotate(360deg);} }
   .robot-shadow{ animation:shadowPulse 6s ease-in-out infinite; transform-origin:center; }
   @keyframes shadowPulse{ 0%,100%{ transform:scale(1); opacity:.18;} 50%{ transform:scale(.8); opacity:.28;} }
   .eye{ transform-origin:center; animation:blink 4.5s infinite; }
   @keyframes blink{ 0%,90%,100%{ transform:scaleY(1);} 93%{ transform:scaleY(.1);} 96%{ transform:scaleY(1);} }
   .antenna-light{ animation:antennaGlow 1.6s ease-in-out infinite; }
   @keyframes antennaGlow{ 0%,100%{ opacity:.5;} 50%{ opacity:1;} }
+  .scan-line{ animation:scanMove 2.6s ease-in-out infinite alternate; }
+  @keyframes scanMove{ 0%{ transform:translateY(0);} 100%{ transform:translateY(60px);} }
+  .heart-badge{ animation:heartBeat 1.6s ease-in-out infinite; transform-origin:center; }
+  @keyframes heartBeat{ 0%,100%{ transform:scale(.9);} 50%{ transform:scale(1.25);} }
   .pulse-dot{ animation:dotPulse 1.5s ease-in-out infinite; }
   .pulse-dot:nth-of-type(2){ animation-delay:.3s; }
   .pulse-dot:nth-of-type(3){ animation-delay:.6s; }
@@ -68,8 +80,87 @@
   .arm-right{ transform-origin:155px 138px; animation:wave 3s ease-in-out infinite; }
   @keyframes wave{ 0%,100%{ transform:rotate(0deg);} 50%{ transform:rotate(18deg);} }
 
+  /* ===== SPARKLE GLITTER ===== */
+  .sparkle{
+    position:absolute; width:14px; height:14px;
+    background:linear-gradient(135deg,var(--pink-accent),var(--blue-light));
+    clip-path:polygon(50% 0%, 61% 39%, 100% 50%, 61% 61%, 50% 100%, 39% 61%, 0% 50%, 39% 39%);
+    animation:twinkle 3.2s ease-in-out infinite; opacity:.7;
+  }
+  @keyframes twinkle{
+    0%,100%{ transform:scale(.5) rotate(0deg); opacity:.25; }
+    50%{ transform:scale(1.15) rotate(25deg); opacity:1; }
+  }
+
+  /* ===== Y2K DECOR ===== */
+  .chrome-orb{
+    position:absolute; border-radius:50%;
+    background:radial-gradient(circle at 32% 28%, #ffffff 0%, var(--blue-light) 30%, var(--blue-mid) 65%, var(--blue-deep) 100%);
+    box-shadow:inset -8px -8px 16px rgba(47,111,237,.35), 0 10px 24px rgba(47,111,237,.25);
+    animation:orbFloat 9s ease-in-out infinite;
+  }
+  .chrome-orb.pink{ background:radial-gradient(circle at 32% 28%, #ffffff 0%, var(--pink-soft) 30%, var(--pink-accent) 65%, var(--blue-deep) 100%); }
+  .chrome-orb::after{
+    content:''; position:absolute; top:14%; left:20%; width:35%; height:20%; border-radius:50%;
+    background:rgba(255,255,255,.85); filter:blur(2px); transform:rotate(-25deg);
+  }
+  @keyframes orbFloat{ 0%,100%{ transform:translateY(0) rotate(0deg);} 50%{ transform:translateY(-18px) rotate(6deg);} }
+
+  .star-burst{
+    position:absolute;
+    background:linear-gradient(135deg,var(--blue-mid),var(--pink-accent));
+    clip-path:polygon(50% 0%,61% 35%,95% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,5% 35%,39% 35%);
+    animation:burstSpin 10s linear infinite; opacity:.8;
+  }
+  @keyframes burstSpin{ to{ transform:rotate(360deg);} }
+
+  .pixel-heart{
+    position:absolute; width:4px; height:4px; background:var(--pink-accent);
+    box-shadow:
+      4px 0 0 var(--pink-accent), 8px 0 0 var(--pink-accent), 16px 0 0 var(--pink-accent), 20px 0 0 var(--pink-accent),
+      0 4px 0 var(--pink-accent), 4px 4px 0 #fff, 8px 4px 0 var(--pink-accent), 12px 4px 0 var(--pink-accent), 16px 4px 0 #fff, 20px 4px 0 var(--pink-accent),
+      0 8px 0 var(--pink-accent), 4px 8px 0 #fff, 8px 8px 0 #fff, 12px 8px 0 #fff, 16px 8px 0 #fff, 20px 8px 0 var(--pink-accent),
+      4px 12px 0 var(--pink-accent), 8px 12px 0 #fff, 12px 12px 0 #fff, 16px 12px 0 var(--pink-accent),
+      8px 16px 0 var(--pink-accent), 12px 16px 0 var(--pink-accent);
+    animation:heartPop 2.4s ease-in-out infinite;
+  }
+  @keyframes heartPop{ 0%,100%{ transform:scale(1); opacity:.85;} 50%{ transform:scale(1.15); opacity:1;} }
+
+  .butterfly{ position:absolute; animation:flutter 5s ease-in-out infinite; }
+  .butterfly svg{ display:block; filter:drop-shadow(0 4px 8px rgba(47,111,237,.2)); }
+  @keyframes flutter{ 0%,100%{ transform:translateY(0) rotate(0deg);} 50%{ transform:translateY(-20px) rotate(-6deg);} }
+  .wing{ animation:wingFlap .6s ease-in-out infinite alternate; transform-origin:20px 15px; }
+  @keyframes wingFlap{ 0%{ transform:scaleX(1);} 100%{ transform:scaleX(.6);} }
+
+  .checker-corner{
+    position:absolute; width:90px; height:90px;
+    background-image:
+      linear-gradient(45deg, var(--blue-light) 25%, transparent 25%),
+      linear-gradient(-45deg, var(--blue-light) 25%, transparent 25%),
+      linear-gradient(45deg, transparent 75%, var(--blue-light) 75%),
+      linear-gradient(-45deg, transparent 75%, var(--blue-light) 75%);
+    background-size:20px 20px;
+    background-position:0 0, 0 10px, 10px -10px, -10px 0px;
+    opacity:.35;
+  }
+
+  .squiggle{ position:absolute; opacity:.5; }
+  .squiggle path{ animation:dashMove 6s linear infinite; stroke-dasharray:10 8; }
+  @keyframes dashMove{ to{ stroke-dashoffset:-200; } }
+
+  .holo-sheen{
+    position:absolute; inset:-50%; width:200%; height:200%;
+    background:linear-gradient(115deg, transparent 40%, rgba(169,205,255,.25) 48%, rgba(255,159,201,.25) 50%, rgba(227,217,255,.25) 52%, transparent 60%);
+    animation:sheenSweep 7s linear infinite; mix-blend-mode:overlay; pointer-events:none;
+  }
+  @keyframes sheenSweep{ 0%{ transform:translate(-15%,-15%);} 100%{ transform:translate(15%,15%);} }
+
   @media (prefers-reduced-motion: reduce){
-    .ambient-glow, .robot-wrap, .robot-wrap *, .circuit-svg *{ animation:none !important; }
+    .chrome-orb, .star-burst, .pixel-heart, .butterfly, .wing, .squiggle path, .holo-sheen{ animation:none !important; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .ambient-glow, .robot-wrap, .robot-wrap *, .robot-ring, .circuit-svg *, .sparkle{ animation:none !important; }
   }
 
   .navbar{
@@ -95,9 +186,9 @@
   .menu-toggle span{ width:26px; height:3px; background:var(--blue-deep); border-radius:3px; }
   @media (max-width:820px){
     .nav-links{
-      position:absolute; top:100%; left:0; right:0; flex-direction:column;
-      background:rgba(255,255,255,0.97); padding:20px 8%; gap:18px; display:none;
-      box-shadow:0 10px 24px rgba(47,111,237,0.1);
+      position:absolute; top:calc(100% + 10px); right:6%; left:auto; width:200px; flex-direction:column;
+      background:rgba(255,255,255,0.97); border-radius:18px; padding:16px 20px; gap:14px; display:none;
+      box-shadow:0 12px 28px rgba(47,111,237,0.18);
     }
     .nav-links.open{ display:flex; }
     .menu-toggle{ display:flex; }
@@ -163,22 +254,52 @@
         </animateMotion>
       </circle>
     </svg>
+    <div class="sparkle" style="top:12%; left:8%;"></div>
+    <div class="sparkle" style="top:22%; left:85%; width:10px; height:10px; animation-delay:.6s;"></div>
+    <div class="sparkle" style="top:48%; left:92%; animation-delay:1.2s;"></div>
+    <div class="sparkle" style="top:68%; left:5%; width:10px; height:10px; animation-delay:1.8s;"></div>
+    <div class="sparkle" style="top:82%; left:32%; animation-delay:2.4s;"></div>
+    <div class="sparkle" style="top:35%; left:50%; width:9px; height:9px; animation-delay:.3s;"></div>
+
+    <div class="checker-corner" style="top:6%; right:-20px; width:70px; height:70px; transform:rotate(20deg);"></div>
+    <div class="checker-corner" style="bottom:8%; left:-20px; width:70px; height:70px; transform:rotate(-15deg);"></div>
+    <div class="star-burst" style="top:18%; left:12%; width:26px; height:26px;"></div>
+    <div class="star-burst" style="top:75%; left:80%; width:20px; height:20px; animation-delay:1.5s;"></div>
+    <div class="chrome-orb" style="top:45%; left:6%; width:30px; height:30px;"></div>
+    <svg class="squiggle" style="top:30%; left:60%; width:180px; height:80px;" viewBox="0 0 180 80">
+      <path d="M0,40 Q30,0 60,40 T120,40 T180,40" fill="none" stroke="var(--blue-light)" stroke-width="2.5"/>
+    </svg>
+    <svg class="squiggle" style="bottom:15%; left:15%; width:150px; height:60px;" viewBox="0 0 150 60">
+      <path d="M0,30 Q20,0 40,30 T80,30 T120,30 T150,30" fill="none" stroke="var(--pink-soft)" stroke-width="2.5"/>
+    </svg>
+    <div class="holo-sheen"></div>
   </div>
 
   <div class="robot-wrap">
+    <div class="robot-ring"></div>
     <svg class="robot" viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <clipPath id="headClip"><rect x="55" y="40" width="90" height="68" rx="22"/></clipPath>
+      </defs>
       <ellipse class="robot-shadow" cx="100" cy="225" rx="50" ry="9" fill="var(--blue-deep)"/>
       <line x1="100" y1="40" x2="100" y2="16" stroke="var(--blue-deep)" stroke-width="4" stroke-linecap="round"/>
       <circle class="antenna-light" cx="100" cy="12" r="8" fill="var(--blue-mid)"/>
       <rect x="55" y="40" width="90" height="68" rx="22" fill="#ffffff" stroke="var(--blue-deep)" stroke-width="4"/>
+      <rect class="scan-line" x="55" y="40" width="90" height="5" fill="var(--blue-light)" opacity="0.6" clip-path="url(#headClip)"/>
       <circle class="eye" cx="82" cy="74" r="8" fill="var(--blue-deep)"/>
       <circle class="eye" cx="118" cy="74" r="8" fill="var(--blue-deep)"/>
       <rect x="86" y="92" width="28" height="4" rx="2" fill="var(--blue-light)"/>
+      <g class="bow" transform="translate(128,26)">
+        <path d="M-13,-7 L0,0 L-13,7 Z" fill="var(--pink-accent)"/>
+        <path d="M13,-7 L0,0 L13,7 Z" fill="var(--pink-accent)"/>
+        <circle cx="0" cy="0" r="4" fill="var(--blue-deep)"/>
+      </g>
       <rect x="45" y="112" width="110" height="78" rx="20" fill="#ffffff" stroke="var(--blue-deep)" stroke-width="4"/>
       <rect x="65" y="126" width="70" height="34" rx="8" fill="#eef6ff" stroke="var(--blue-light)" stroke-width="2"/>
       <circle class="pulse-dot" cx="80" cy="143" r="4" fill="var(--blue-mid)"/>
       <circle class="pulse-dot" cx="100" cy="143" r="4" fill="var(--blue-mid)"/>
       <circle class="pulse-dot" cx="120" cy="143" r="4" fill="var(--blue-mid)"/>
+      <path class="heart-badge" transform="translate(124,116) scale(0.9)" d="M5,9 C5,9 0,5.5 0,2.5 C0,0.8 1.3,0 2.5,0 C3.5,0 4.5,0.6 5,1.6 C5.5,0.6 6.5,0 7.5,0 C8.7,0 10,0.8 10,2.5 C10,5.5 5,9 5,9 Z" fill="var(--pink-accent)"/>
       <g class="arm-left">
         <line x1="45" y1="138" x2="20" y2="158" stroke="var(--blue-deep)" stroke-width="6" stroke-linecap="round"/>
         <circle cx="20" cy="158" r="7" fill="var(--blue-mid)"/>
@@ -193,7 +314,7 @@
   </div>
 
   <nav class="navbar">
-    <div class="nav-logo">AR<span>.</span></div>
+    <div class="nav-logo">Amornrat <span>Portfolio</span></div>
     <ul class="nav-links" id="navLinks">
       <li><a href="index.html">หน้าแรก</a></li>
       <li><a href="profile.html">ประวัติส่วนตัว</a></li>
@@ -207,6 +328,7 @@
   </nav>
 
   <div class="page-head">
+  
     <h1>ประวัติการศึกษา</h1>
     <p>เส้นทางการเรียนของฉัน ตั้งแต่โรงเรียนเดิมจนถึงปัจจุบัน</p>
   </div>
@@ -218,8 +340,7 @@
         <div class="stage">มัธยมศึกษาตอนต้น</div>
         <h3>โรงเรียนพานทอง</h3>
         <div class="years">พ.ศ. 2564 - 2566</div>
-        <p>เริ่มต้นการเรียนในระดับมัธยมศึกษาตอนต้น ในเเผนการเรียน ศิลป์-ภาษาต่างประเทศ</p>
-        <p>GPX:3.80</p>
+        <p>เริ่มต้นการเรียนในระดับมัธยมศึกษาตอนต้น  ในสายการเรียน ศิลป์ภาษาต่างประเทศ-จีน เเละเริ่มรู้ตัวว่าชอบในการใช้คอมพิวเตอร์</p>
       </div>
     </div>
 
@@ -231,13 +352,12 @@
         <div class="years">พ.ศ. 2567 - ปัจจุบัน</div>
         <p>ศึกษาต่อในระดับมัธยมศึกษาตอนปลาย แผนการเรียนวิทยาศาสตร์-คณิตศาสตร์
         มุ่งมั่นพัฒนาทักษะด้านการออกแบบและเทคโนโลยีอย่างต่อเนื่อง</p>
-        <p>GPX:3.72</p>
       </div>
     </div>
   </div>
 
   <footer class="footer">
-    © 2026 Amornrut Portfolio · สร้างด้วยความตั้งใจ 💙
+    © 2026 Amornrat Portfolio · สร้างด้วยความตั้งใจ 💙
   </footer>
 
 </body>
