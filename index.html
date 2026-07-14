@@ -296,7 +296,7 @@
 
   /* ===== QUICK NAV CARDS ===== */
   .quick-links{
-    max-width:1300px; margin:0 auto; padding:0 8% 110px;
+    max-width:1300px; margin:0 auto; padding:0 8% 50px;
     display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:24px;
   }
   .qcard{
@@ -314,6 +314,29 @@
   }
   .qcard h3{ font-size:1.05rem; margin-bottom:6px; }
   .qcard p{ font-size:0.85rem; color:var(--text-muted); }
+
+  /* ===== NEXT PAGE BUTTON ===== */
+  .next-page-container {
+    text-align: center;
+    margin: 20px auto 80px auto;
+  }
+  .btn-next {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 35px;
+    background: linear-gradient(135deg, var(--blue-mid), var(--blue-deep));
+    color: #fff;
+    border-radius: 40px;
+    text-decoration: none;
+    font-weight: 600;
+    box-shadow: 0 10px 20px rgba(47, 111, 237, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .btn-next:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(47, 111, 237, 0.3);
+  }
 
   /* ===== FOOTER ===== */
   .footer{
@@ -421,11 +444,8 @@
       <h1>ยินดีต้อนรับสู่ <span class="grad">Portfolio</span><br>ของ อมรรัตน์</h1>
       <p>สวัสดีค่ะ นี่คือพื้นที่เล็ก ๆ ที่รวบรวมตัวตน ความสามารถ และผลงานของฉันไว้ด้วยกัน
       เชิญสำรวจแต่ละหน้าเพื่อรู้จักฉันมากขึ้นนะคะ 💙</p>
-      <div class="hero-btns">
-        <a href="profile.html" class="btn btn-primary">รู้จักฉันมากขึ้น</a>
-        <a href="award.html" class="btn btn-outline">ดูผลงานของฉัน</a>
-      </div>
-    </div>
+
+    
     <div class="hero-photo">
       <div class="halo"></div>
       <img src="images/me.jpg.JPG" alt="รูปโปรไฟล์ของอมรรัตน์" onerror="this.src='https://placehold.co/250x250/eef6ff/2f6fed?text=Amonrat'">
@@ -452,6 +472,13 @@
       <div class="icon">📨</div>
       <h3>ช่องทางติดต่อ</h3>
       <p>ติดต่อพูดคุยกับฉันได้เลย</p>
+    </a>
+  </div>
+
+  <!-- ปุ่มหน้าถัดไป -->
+  <div class="next-page-container">
+    <a href="profile.html" class="btn-next">
+      เข้าสู่หน้าประวัติส่วนตัว <span>&rarr;</span>
     </a>
   </div>
 
